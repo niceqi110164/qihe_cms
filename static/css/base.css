@@ -1,0 +1,15 @@
+
+.title{
+    background: lightblue;
+    color: hotpink;
+    font-size: 40px;
+    font-weight: bold;
+}
+.table{
+    width:100%;
+    border-collapse: collapse;
+}
+.table td,.table th{
+    border: 1px solid #ccc;
+    text-align: center;
+}

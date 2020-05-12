@@ -1,0 +1,18 @@
+
+.qh-toast{
+    position:fixed;
+    background: rgba(0,0,0,0.7);
+    border-radius:4px;
+    top:90%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    max-width:60%;
+    text-align: center;
+    transition:all 0.1s;
+}
+
+.qh-toast-text{
+    color:#fff;
+    padding:4px 10px;
+    padding-bottom:6px;
+}

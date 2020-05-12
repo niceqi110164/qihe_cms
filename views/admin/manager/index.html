@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+{{include '../public/header.html'}}
+<body>
+
+{{if success}}
+<script>
+    var yg = new Ygtoast();
+    yg.toast("你说神马",5000);
+</script>
+{{else}}
+
+{{/if}}
+
+<div class="app header-default side-nav-dark">
+   <div class="layout">
+
+      <!----------上边的nav ----------->
+      {{include 'admin/public/nav-top.html'}}
+
+      <!----------左边的nav ----------->
+      {{include 'admin/public/nav-left.html'}}
+
+
+
+
+      <div class="page-container">
+
+         <div class="main-content">
+            <div class="container-fluid">
+
+               <div class="breadcrumb-wrapper row">
+                  <div class="col-12 col-lg-3 col-md-6">
+                     <h4 class="page-title">Dashboard</h4>
+                  </div>
+                  <div class="col-12 col-lg-9 col-md-6">
+                     <ol class="breadcrumb float-right">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active">/ Dashboard</li>
+                     </ol>
+                  </div>
+               </div>
+
+            </div>
+            <div class="container-fluid">
+
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="card">
+                        <div class="card-header">
+                           <h4 class="card-title">管理员列表</h4>
+                           <!--
+                           <div class="float-right">
+                               <ul class="list-inline d-none d-sm-block">
+                                   <li>
+                                       <span class="status bg-primary"></span>
+                                       <span class="text-semibold">Return</span>
+                                   </li>
+                                   <li>
+                                       <span class="status bg-success"></span>
+                                       <span class="text-semibold">Revenue</span>
+                                   </li>
+                                   <li>
+                                       <span class="status bg-purple"></span>
+                                       <span class="text-semibold">Cost</span>
+                                   </li>
+                               </ul>
+                           </div>
+                           -->
+                        </div>
+                        <div class="card-body">
+                           <p class="text-muted m-b-20 box-content">
+                              For basic styling—light padding and only horizontal dividers—use the class
+                              <code>table</code>.
+                           </p>
+                           <div class="table-responsive">
+                              <table class="table table-bordered table-striped  mb-0">
+                                 <thead>
+                                 <tr>
+                                    <th>序号</th>
+                                    <th class="text-center">管理员</th>
+                                    <th class="text-center">最后登录时间</th>
+                                    <th class="text-center">状态</th>
+                                    <th class="text-center">操作</th>
+                                 </tr>
+                                 </thead>
+                                 <tbody>
+                                 {{each list}}
+                                 <tr>
+                                    <th scope="row">{{$index+1}}</th>
+                                    <td class="text-center">{{$value.username}}</td>
+                                    <td class="text-center">{{$value.add_time}}</td>
+                                    <td class="text-center">
+                                       {{if $value.status === "1"}}
+                                       <img src="{{__HOST__}}/admin/assets/img/yes.gif" onclick="app.toggle(this,'managers','status','{{@$value._id}}')" alt="icon">
+                                       {{else}}
+                                       <img src="{{__HOST__}}/admin/assets/img/no.gif" onclick="app.toggle(this,'managers','status','{{@$value._id}}')" alt="icon">
+                                       {{/if}}
+                                    </td>
+                                    <td class="text-center">
+                                       <div class="visible-md visible-lg hidden-sm hidden-xs btn-group center">
+                                          <a class="btn btn-info btn-sm"
+                                             href="{{__HOST__}}/admin/manager/edit?id={{@$value._id}}">
+
+                                             <i class="lni-pencil bigger-120"></i>
+
+                                          </a>
+
+                                          <a class="btn btn-sm btn-common delete"
+                                             href="{{__HOST__}}/admin/remove?collectionName=userInfo&id={{@$value._id}}">
+                                             <i class="fa fa-trash-o bigger-120"></i>
+                                          </a>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 {{/each}}
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+
+
+         <footer class="content-footer">
+            <div class="footer">
+               <div class="copyright">
+                        <span>
+                            Copyright © 2018
+                            <b class="text-dark">UIdeck</b>
+                            . All Right Reserved More Templates
+                            <a href="http://www.scnoob.com">菜鸟素材</a>
+                            - Collect from
+                            <a href="http://www.scnoob.com/moban">网页模板</a>
+                        </span>
+               </div>
+            </div>
+         </footer>
+
+      </div>
+
+   </div>
+</div>
+
+
+
+<div id="preloader">
+   <div class="loader" id="loader-1"></div>
+</div>
+
+
+<!----------引入公共的footer ----------->
+{{include 'admin/public/footer.html'}}
+</body>
+</html>
