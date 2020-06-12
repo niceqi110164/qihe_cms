@@ -4,6 +4,7 @@ const router = require('koa-router')(),
       tools = require('../../model/tools'),
       DB = require('../../model/db');
 
+/**========== 管理员首页 ============*/
 router.get('/',async (ctx)=>{
 
     let result= await DB.find('managers',{});
@@ -19,6 +20,7 @@ router.get('/add',async (ctx)=>{
     await ctx.render('admin/manager/add');
 });
 
+/**========== doAdd操作 ============*/
 router.post('/doAdd', async (ctx)=>{
     /**1.获取表单数据*/
     console.log(ctx.request.body);
@@ -63,15 +65,11 @@ router.post('/doAdd', async (ctx)=>{
             }
         }
     }
-
-
-    //await DB.insert('managers')
 });
 
 
 
-
-/**编辑页面*/
+/**========== 编辑管理员 ============*/
 router.get('/edit',async (ctx)=>{
     /**get 方式获取id*/
     let id = ctx.query.id;
@@ -88,11 +86,32 @@ router.get('/edit',async (ctx)=>{
     }
 });
 
-/**编辑页面*/
+/**========== doEdit操作 ============*/
 router.post('/doEdit',async (ctx)=>{
     console.log(ctx.request.body);
-    ctx.body = "doEdit";
+    //{ username: '奔驰', password: '123456', rpassword: '123456' }
+    //1.获取表单数据
+    let json = {};
+    json.username = ctx.request.body.username;
+    json.username = ctx.request.body.password;
+    json.username = ctx.request.body.rpassword;
+    //2.验证表单数据是否合法
+    // if(ctx.request.body.password !== ""){//当密码部位空的时候向下执行
+    //     if(ctx.request.body.password.length>20 || ctx.request.body.password.length<6){
+    //         await ctx.render()
+    //     }else if(ctx.request.body.password !== ctx.request.body.rpassword){
+    //         await ctx.render()
+    //     }else{
+    //         DB.update("managers",{"_id":DB.getObjectID()},{})
+    //     }
+    // }
+
+    //ctx.body = "doEdit";
 });
+
+
+
+
 
 
 router.get('/delete',async (ctx)=>{

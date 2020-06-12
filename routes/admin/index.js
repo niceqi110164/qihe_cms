@@ -41,6 +41,11 @@ router.get('/changeStatus', async (ctx)=>{
     }
 });
 
+
+router.get('/changeManagerAdd', async (ctx)=>{
+    console.log(ctx.query);
+
+})
 /**
 router.get('/changeStatus', async (ctx)=>{
     let id = ctx.query.id;
