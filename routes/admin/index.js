@@ -41,11 +41,31 @@ router.get('/changeStatus', async (ctx)=>{
     }
 });
 
-
+/**========== test doAdd操作 ============*/
 router.get('/changeManagerAdd', async (ctx)=>{
     console.log(ctx.query);
+    let json = {};
+    json.username = ctx.query.username;
+    json.password = ctx.query.password;
+    json.rpassword = ctx.query.rpassword;
 
+    /**3.在数据库查询当前要增加的管理员是否存在*/
+    let managerResult = await DB.find("managers",{"username":json.username});
+    if(managerResult.length>0){
+        /**返回数据*/
+        ctx.body = {'message':'用户已存在',success:false};
+    }else{
+        /**4.增加管理员*/
+        let insertResult = await DB.insert('managers',json);
+        //console.log(insertResult);
+        if(insertResult.result.ok === 1){
+            /**返回数据*/
+            ctx.body = {'message':'添加成功',success:true};
+        }
+    }
 })
+
+
 /**
 router.get('/changeStatus', async (ctx)=>{
     let id = ctx.query.id;
