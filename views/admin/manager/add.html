@@ -186,13 +186,13 @@
            let password = $("input[name=password]").val();
            let rpassword = $("input[name=rpassword]").val();
            //console.log(`用户名${username},密码${password},确认密码${rpassword}`);
-        //Ajax请求
-        $.get("/admin/changeManagerAdd",{
+        //Ajax请求 "/admin/changeManagerAdd"
+        $.post("/admin/manager/doAdd",{
             username:username,
             password:password,
             rpassword:rpassword
         }, function(data,status){
-            //alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
+            alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
             //alert("status Loaded: " + status);
             if(data.success){
                 //alert(data.message);
@@ -217,6 +217,31 @@
                     function next() {
                         $("#msg").remove();
                         window.location.href="/admin/manager";
+                    }
+                }
+                tankuang(300,data.message);
+            }else{
+                function tankuang(pWidth,content) {
+                    $("#msg").remove();
+                    let html ='<div id="msg" style="position:fixed;top:50%;width:100%;height:30px;line-height:30px;margin-top:-15px;">' +
+                        '<p style="background:#000;' +
+                        'opacity:0.8;' +
+                        'width:'+ pWidth +'px;' +
+                        'color:#fff;' +
+                        'text-align:center;' +
+                        'padding:10px 10px;' +
+                        'margin:0 auto;' +
+                        'font-size:12px;' +
+                        'border-radius:4px;' +
+                        '">'+
+                        content +
+                        '</p>' +
+                        '</div>'
+                    $("body").append(html);
+                    let t = setTimeout(next,500);
+                    function next() {
+                        $("#msg").remove();
+                        window.location.href="/admin/manager/add";
                     }
                 }
                 tankuang(300,data.message);
