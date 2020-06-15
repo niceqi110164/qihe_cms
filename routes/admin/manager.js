@@ -82,25 +82,29 @@ router.get('/edit',async (ctx)=>{
 
 /**========== doEdit操作 ============*/
 router.post('/doEdit',async (ctx)=>{
-    console.log(ctx.request.body);
+    //console.log(ctx.request.body);
     //{ username: '奔驰', password: '123456', rpassword: '123456' }
     //1.获取表单数据
-    let json = {};
-    json.username = ctx.request.body.username;
-    json.username = ctx.request.body.password;
-    json.username = ctx.request.body.rpassword;
-    //2.验证表单数据是否合法
-    // if(ctx.request.body.password !== ""){//当密码部位空的时候向下执行
-    //     if(ctx.request.body.password.length>20 || ctx.request.body.password.length<6){
-    //         await ctx.render()
-    //     }else if(ctx.request.body.password !== ctx.request.body.rpassword){
-    //         await ctx.render()
-    //     }else{
-    //         DB.update("managers",{"_id":DB.getObjectID()},{})
-    //     }
-    // }
-
-    //ctx.body = "doEdit";
+    let id = ctx.request.body.id;
+    /**2.验证表单数据是否合法*/
+    if(ctx.request.body.password !== ""){//当密码部位空的时候向下执行
+        if(ctx.request.body.password.length>20 || ctx.request.body.password.length<6){
+            /**返回失败数据*/
+            ctx.body = {'message':'密码长度为6~20',success:false};
+        }else if(ctx.request.body.password !== ctx.request.body.rpassword){
+            /**返回失败数据*/
+            ctx.body = {'message':'两次密码不一致',success:false};
+        }else{
+            let updateResult =await DB.update("managers",{"_id":DB.getObjectID(id)},{
+                username:ctx.request.body.username,
+                password:ctx.request.body.password
+            });
+            if(updateResult.result.ok === 1){
+                /**返回成功数据*/
+                ctx.body = {'message':'修改成功',success:true};
+            }
+        }
+    }
 });
 
 
