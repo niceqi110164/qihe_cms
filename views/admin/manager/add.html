@@ -191,8 +191,36 @@
             username:username,
             password:password,
             rpassword:rpassword
-        }, function(data){
-            alert("Data Loaded: " + data);
+        }, function(data,status){
+            //alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
+            //alert("status Loaded: " + status);
+            if(data.success){
+                //alert(data.message);
+                function tankuang(pWidth,content) {
+                    $("#msg").remove();
+                    let html ='<div id="msg" style="position:fixed;top:50%;width:100%;height:30px;line-height:30px;margin-top:-15px;">' +
+                        '<p style="background:#000;' +
+                            'opacity:0.8;' +
+                            'width:'+ pWidth +'px;' +
+                            'color:#fff;' +
+                            'text-align:center;' +
+                            'padding:10px 10px;' +
+                            'margin:0 auto;' +
+                            'font-size:12px;' +
+                            'border-radius:4px;' +
+                            '">'+
+                            content +
+                        '</p>' +
+                        '</div>'
+                    $("body").append(html);
+                    let t = setTimeout(next,10000);
+                    function next() {
+                        $("#msg").remove();
+                        window.location.href="/admin/manager";
+                    }
+                }
+                tankuang(300,data.message);
+            }
         });
     })
 </script>
