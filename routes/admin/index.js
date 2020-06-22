@@ -65,6 +65,22 @@ router.get('/changeManagerAdd', async (ctx)=>{
     }
 })
 
+/**========== 公共的删除操作 ============*/
+router.get('/delete', async (ctx)=>{
+    //console.log(ctx.query);
+    let collectionName = ctx.query.collectionName;
+    let id = ctx.query.id;
+    let delResult = await DB.delete(collectionName, {"_id":DB.getObjectID(id)});
+    if(delResult.result.ok === 1){
+        /**返回数据*/
+        ctx.body = {'message':'删除成功',success:true};
+    }else{
+        /**返回数据*/
+        ctx.body = {'message':'删除失败',success:false};
+    }
+})
+
+
 
 /**
 router.get('/changeStatus', async (ctx)=>{
