@@ -1,7 +1,7 @@
 /**Created by xiaoqi on 2020/6/16*/
 
 /**弹框方法**/
-function tankuang(pWidth,content) {
+function tankuang(pWidth,content,redirectUrl) {
     $("#msg").remove();
     let html ='<div id="msg" style="position:fixed;top:50%;width:100%;height:30px;line-height:30px;margin-top:-15px;">' +
         '<p style="background:#000;' +
@@ -21,7 +21,7 @@ function tankuang(pWidth,content) {
     let t = setTimeout(next,500);
     function next() {
         $("#msg").remove();
-        window.location.href="/admin/manager";
+        window.location.href=redirectUrl;
     }
 }
 
