@@ -3,15 +3,6 @@
 {{include '../public/header.html'}}
 <body>
 
-{{if success}}
-<script>
-    var yg = new Ygtoast();
-    yg.toast("你说神马",5000);
-</script>
-{{else}}
-
-{{/if}}
-
 <div class="app header-default side-nav-dark">
    <div class="layout">
 
@@ -89,7 +80,7 @@
                                  <tr>
                                     <th scope="row">{{$index+1}}</th>
                                     <td class="text-center">{{$value.username}}</td>
-                                    <td class="text-center">{{$value.add_time}}</td>
+                                    <td class="text-center">{{$value.last_time | dateFormat}}</td>
                                     <td class="text-center">
                                        {{if $value.status === "1"}}
                                        <img src="{{__HOST__}}/admin/assets/img/yes.gif" onclick="app.toggle(this,'managers','status','{{@$value._id}}')" alt="icon">
@@ -106,10 +97,10 @@
 
                                           </a>
 
-                                          <a class="btn btn-sm btn-common delete"
-                                             href="{{__HOST__}}/admin/remove?collectionName=userInfo&id={{@$value._id}}">
+                                          <button class="btn btn-sm btn-common delete" onclick="del(this,'managers','{{@$value._id}}')">
+<!--href="{{__HOST__}}/admin/delete?collectionName=managers&id={{@$value._id}}"-->
                                              <i class="fa fa-trash-o bigger-120"></i>
-                                          </a>
+                                          </button>
                                        </div>
                                     </td>
                                  </tr>
@@ -121,10 +112,8 @@
                      </div>
                   </div>
                </div>
-
             </div>
          </div>
-
 
          <footer class="content-footer">
             <div class="footer">
@@ -140,13 +129,9 @@
                </div>
             </div>
          </footer>
-
       </div>
-
    </div>
 </div>
-
-
 
 <div id="preloader">
    <div class="loader" id="loader-1"></div>
@@ -155,5 +140,41 @@
 
 <!----------引入公共的footer ----------->
 {{include 'admin/public/footer.html'}}
+
+<script>
+   let json = {};
+   function del(el,collectionName,id){
+       json.collectionName =collectionName;
+       json.id = id;
+   }
+
+   //console.log(json);
+   $(".delete").click(function(){
+      let _this = this
+       new Msg({
+           content:'确认要删除吗<span style="color: orange;">?</span>',
+           confirm:function(e){
+               //console.log(e);
+               console.log("confirm");
+               $.get("/admin/delete",json,function (data,status) {
+                   //console.log(data);
+                   if(data.success){
+                       tankuang(300,data.message,'/admin/manager');
+                   }
+               })
+           },
+           cancel:function(e){
+               console.log("cancel");
+               //console.log(this);
+               return false;
+           },
+           contentStyle:{
+               fontSize:"15px",
+               // background:"lightgreen"
+           },
+           useHTML:true
+       })
+   })
+</script>
 </body>
 </html>
