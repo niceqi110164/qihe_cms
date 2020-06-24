@@ -34,13 +34,16 @@ router.post('/doLogin', async (ctx)=>{
         console.log("成功");
         ctx.session.userInfo = result[0];
         ctx.redirect(ctx.state.__HOST__+'/admin');
-        //ctx.redirect('/admin');
     }else{
 
         console.log('失败');
     }
 });
 
+router.get('/loginOut', async (ctx)=>{
+    ctx.session.userinfo=null;
+    ctx.redirect(ctx.state.__HOST__+'/admin/login');
+})
 
 /**============在模块加载的时候启动路由=============*/
 module.exports = router.routes();
