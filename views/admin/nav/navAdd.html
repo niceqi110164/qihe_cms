@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<!----------引入公共的header ----------->
+{{include 'admin/public/header.html'}}
+<body>
+
+
+<div class="app header-default side-nav-dark">
+    <div class="layout">
+
+        <!----------上边的nav ----------->
+        {{include 'admin/public/nav-top.html'}}
+
+        <!----------左边的nav ----------->
+        {{include 'admin/public/nav-left.html'}}
+
+
+        <div class="page-container">
+
+            <div class="main-content">
+                <div class="container-fluid">
+
+                    <div class="breadcrumb-wrapper row">
+                        <div class="col-12 col-lg-3 col-md-6">
+                            <h4 class="page-title">Dashboard</h4>
+                        </div>
+                        <div class="col-12 col-lg-9 col-md-6">
+                            <ol class="breadcrumb float-right">
+                                <li><a href="navIndex.html">Home</a></li>
+                                <li class="active">/ Dashboard</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">添加导航</h5>
+                                    <!--
+                                    <div class="float-right">
+                                        <ul class="list-inline d-none d-sm-block">
+                                            <li>
+                                                <span class="status bg-primary"></span>
+                                                <span class="text-semibold">Return</span>
+                                            </li>
+                                            <li>
+                                                <span class="status bg-success"></span>
+                                                <span class="text-semibold">Revenue</span>
+                                            </li>
+                                            <li>
+                                                <span class="status bg-purple"></span>
+                                                <span class="text-semibold">Cost</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    -->
+                                </div>
+                                <div class="card-body">
+                                    <!--<div id="morris-bar-example" style="height: 372px"></div>-->
+                                    <div style="height: 372px">
+<!--                                        <form role="form" action="{{__HOST__}}/admin/manager/doAdd" method="post" id="form-validation" novalidate="novalidate">-->
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label" for="nav_title">标题:</label>
+                                                <div class="col-sm-10">
+                                                    <input id="nav_title" type="text" class="form-control" name="nav_title" placeholder="2~20位字母数组汉字">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label" for="nav_url">链接地址:</label>
+                                                <div class="col-sm-10">
+                                                    <input id="nav_url" type="text" class="form-control" name="nav_url" placeholder="以 '/' 开头的英文字母">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label" for="sort">排序:</label>
+                                                <div class="col-sm-10">
+                                                    <input id="sort" type="number" name="sort" min="1" max="10" class="form-control"  placeholder="输入1~10区间">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label" >状态:</label>
+                                                <div class="col-sm-10 col-form-label" >
+                                                    <label for="status1" class="m-r-10">
+                                                        已审核 :
+                                                        <input class="btn-radio" id="status1" type="radio"  name="status" value="1" checked>
+                                                    </label>
+                                                    <label for="status2">
+                                                        未审核 :
+                                                        <input class="btn-radio" id="status2" type="radio"  name="status" value="0" >
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label"></label>
+                                                <div class="col-sm-10">
+                                                    <button id="btn-common" class="btn btn-common">提交</button>
+                                                </div>
+                                            </div>
+
+<!--                                        </form>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-12 stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="sales-info">
+                                                <h3>14,0000</h3>
+                                                <span>Overall Performance</span>
+                                            </div>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-primary" role="progressbar"
+                                                     aria-valuenow="35" style="width: 75%"></div>
+                                            </div>
+                                            <p>42% higher than last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="sales-info">
+                                                <h3>34,000</h3>
+                                                <span>Active Installations</span>
+                                            </div>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-success" role="progressbar"
+                                                     aria-valuenow="35" style="width: 55%"></div>
+                                            </div>
+                                            <p>19% less than last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="sales-info">
+                                                <h3>11,279</h3>
+                                                <span>Total downloads</span>
+                                            </div>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-purple" role="progressbar"
+                                                     aria-valuenow="35" style="width: 35%"></div>
+                                            </div>
+                                            <p>73% higher than last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <footer class="content-footer">
+                <div class="footer">
+                    <div class="copyright">
+                        <span>
+                            Copyright © 2018
+                            <b class="text-dark">UIdeck</b>
+                            . All Right Reserved More Templates
+                            <a href="http://www.scnoob.com">菜鸟素材</a>
+                            - Collect from
+                            <a href="http://www.scnoob.com/moban">网页模板</a>
+                        </span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+
+
+<!----------引入公共的footer ----------->
+{{include 'admin/public/footer.html'}}
+
+<script>
+    $('#btn-common').click(function () {
+           let nav_title = $("input[name=nav_title]").val();
+           let nav_url = $("input[name=nav_url]").val();
+           let sort = $("input[name=sort]").val();
+           let status = $("input[name=status]").val();
+        //Ajax请求 "/admin/changeManagerAdd"
+        $.post("/admin/nav/doNavAdd",{
+            nav_title:nav_title,
+            nav_url:nav_url,
+            sort:sort,
+            status:status,
+        }, function(data,status){
+            //alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
+            if(data.success){
+                //alert(data.message);
+                //成功地址跳转 "/admin/manager"
+                tankuang(300,data.message,"/admin/nav/");
+            }else{
+                //失败地址回到 "/admin/manager/add"
+                tankuang(300,data.message,"/admin/nav/navAdd");
+            }
+        });
+
+    })
+</script>
+</body>
+</html>
