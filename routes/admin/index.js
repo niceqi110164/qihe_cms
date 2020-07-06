@@ -9,6 +9,8 @@ router.get('/', async (ctx)=>{
     await ctx.render('admin/index/index');
 });
 
+
+/**========== 改变选项状态操作 ============*/
 router.get('/changeStatus', async (ctx)=>{
     //console.log(ctx.query);
     let attr = ctx.query.attr;
@@ -40,6 +42,32 @@ router.get('/changeStatus', async (ctx)=>{
         ctx.body = {'message':'连接数据库失败,参数错误',success:false}
     }
 });
+
+/**========== 改变排序操作 ============*/
+router.get('/changeSort', async (ctx)=>{
+    //console.log(ctx.query);
+    /**
+      {
+          collectionName: 'nav',
+          sortValue: '9',
+          id: '5efea879e4c55806e433d023'
+      }
+
+     * */
+    let sortJson = ctx.query;
+    //更新数据库
+    let updateResult = await DB.update(sortJson.collectionName,{"_id":DB.getObjectID(sortJson.id)},{"sort":sortJson.sortValue})
+
+    //判断数据是否更新成功
+    if(updateResult.result.ok === 1){
+        /**返回数据*/
+        ctx.body = {'message':'更新成功',success:true};
+    }else{
+        /**返回数据*/
+        ctx.body = {'message':'更新失败',success:false};
+    }
+})
+
 
 /**========== test doAdd操作 ============*/
 router.get('/changeManagerAdd', async (ctx)=>{
@@ -79,6 +107,8 @@ router.get('/delete', async (ctx)=>{
         ctx.body = {'message':'删除失败',success:false};
     }
 })
+
+
 
 
 
