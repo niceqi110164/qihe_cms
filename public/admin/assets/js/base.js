@@ -1,4 +1,9 @@
 /**Created by xiaoqi on 2020/3/13*/
+//  $(document).ready(function(){})可以简写成$(function(){});
+// $(function(){
+//     app.delete();
+// });
+
 
 let app = {
 /**定义 toggle 方法*/
@@ -21,5 +26,23 @@ let app = {
                 }
             }
         );
+    },
+    changeSort(el,collectionName,id){
+        let sortValue = el.value;
+        $.get("/admin/changeSort",
+            {
+                collectionName:collectionName,
+                sortValue:sortValue,
+                id:id
+            },
+            function (data,status) {
+                if(data.success){
+                    tankuang(300,data.message,'/admin/nav/');
+                }else{
+                    tankuang(300,data.message,'/admin/nav/');
+                }
+            }
+        )
     }
 };
+
