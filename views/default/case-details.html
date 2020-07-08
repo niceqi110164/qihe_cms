@@ -1,0 +1,319 @@
+﻿<!doctype html>
+<html lang="zxx">
+
+    <!----------引入公共的 header  ----------->
+    {{include "default/public/header.html"}}
+
+    <body>
+        <!-- Start Preloader -->
+        <div class="preloader">
+            <div class="preloader-wave"></div>
+        </div>
+        <!-- End Preloader -->
+
+        <!-- Start Heder Area -->
+        <header class="header-area top-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="header-left">
+                            <ul>
+                                <li>
+                                    <i class="fas fa-clock"></i>
+                                    SAT - THU (10:00 AM - 6:00PM)
+                                </li>
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    28/A Street, New York, USA
+                                </li>
+                                <li>
+                                    <a href="tel:+1123456789">
+                                        <i class="fas fa-phone-alt"></i>
+                                        +1 123 456 789
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="social-icon">
+                            <ul>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>  
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-google-plus-g"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Heder Area -->
+
+        <!----------引入公共的头部导航 nav-top  ----------->
+        {{include "default/public/nav-top.html"}}
+        
+        <!-- Inner Banner -->
+        <div class="inner-banner bg-shape2 bg-color5">
+            {{include "default/public/innerBanner.html"}}
+        </div>
+        <!-- Inner Banner End -->
+
+        <!-- Shop-Detls -->
+        <section class="shop-detls ptb-100">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="shop-detls-image">
+                            <img src="{{__HOST__}}/default/assets/img/product/shop-detl.jpg" alt="image">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="shop-desc">
+                            <h3>Life Jacket</h3>
+                            <div class="price">
+                                <span class="new-price">$120.00</span>
+                                <span class="old-price">$210.00</span>
+                            </div>
+
+                            <div class="shop-review">
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <a href="#" class="rating-count">3 reviews</a>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                                tempor incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur 
+                                adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
+                            </p>
+
+                            <div class="shop-add">
+                                <div class="input-counter">
+                                    <span class="minus-btn"><i class="fas fa-minus"></i></span>
+                                    <input type="text" min="1" value="1">
+                                    <span class="plus-btn"><i class="fas fa-plus"></i></span>
+                                </div>
+                                <button type="submit" class="shop-btn">
+                                    <i class="fas fa-cart-plus"></i> Add To Cart
+                                </button>
+                            </div>
+
+                            <div class="buy-checkbox-btn">
+                                <div class="item">
+                                    <input class="inp-cbx" id="cbx" type="checkbox">
+                                    <label class="cbx" for="cbx">
+                                        <span>I agree with the terms and conditions</span>
+                                    </label>
+                                </div>
+
+                                <div class="item">
+                                    <a href="#" class="btn btn-buy">Buy Now!</a>
+                                </div>
+                            </div>
+
+                            <div class="custom-payment">
+                                <span>Guaranteed safe checkout:</span>
+
+                                <div class="payment-methods">
+                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add1.svg" alt="image"></a>
+                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add2.svg" alt="image"></a>
+                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add3.svg" alt="image"></a>
+                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add4.svg" alt="image"></a>
+                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add5.svg" alt="image"></a>
+                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add6.svg" alt="image"></a>
+                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add7.svg" alt="image"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                   <div class="col-lg-12 col-md-12">
+                        <div class="tab shop-detls-tab">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <ul class="tabs">
+                                        <li>
+                                            <a href="#"> Description</a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="#">Additional information </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#"> Reviews </a>
+                                       </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="tab_content current active">
+                                        <div class="tabs_item current">
+                                            <div class="shop-detls-tab-content">
+                                                <p>
+                                                    Design inspiration lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                                    Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar
+                                                    odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula 
+                                                    volutpat condimentum.  Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla
+                                                    libero. Vivamus pharetra posuere sapien. Nam consectetuer. Sed aliquam, nunc eget euismod
+                                                    ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Nam
+                                                    consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, 
+                                                    fermentum bibendum enim nibh eget ipsum. Nulla libero. Vivamus pharetra posuere sapien.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="tabs_item ">
+                                            <div class="shop-detls-tab-content">
+                                                <ul class="additional-information">
+                                                    <li><span>Brand:</span>Sparco</li>
+                                                    <li><span>Color:</span>Yellow</li>
+                                                    <li><span>Size:</span> Large, Medium</li>
+                                                    <li><span>Weight:</span> 250 gm</li>
+                                                    <li><span>Dimensions:</span> 16 x 22 x 123 cm</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="tabs_item">
+                                            <div class="shop-detls-tab-content">
+                                                <div class="shop-review-form">
+                                                    <h3>Customer Reviews</h3>
+                                                    <div class="review-title">
+                                                        <div class="rating">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                        </div>
+                                                        <p>Based on 3 reviews</p>
+                                                        <a href="#" class="default-btn btn-right">Write a Review <span></span></a>
+                                                    </div>
+
+                                                    <div class="review-comments">
+                                                        <div class="review-item">
+                                                            <div class="rating">
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="far fa-star"></i>
+                                                            </div>
+                                                            <h3>Good</h3>
+                                                            <span><strong>Admin</strong> on <strong>Sep 21, 2020</strong></span>
+                                                            <p>
+                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                                Ut enim ad minim veniam, quis nostrud exercitation.
+                                                            </p>
+                                                            <a href="#" class="review-report-link">Report as Inappropriate</a>
+                                                        </div>
+
+                                                        <div class="review-item">
+                                                            <div class="rating">
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="far fa-star"></i>
+                                                            </div>
+                                                            <h3>Good</h3>
+                                                            <span><strong>Admin</strong> on <strong>Sep 21, 2020</strong></span>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+
+                                                            <a href="#" class="review-report-link">Report as Inappropriate</a>
+                                                        </div>
+
+                                                        <div class="review-item">
+                                                            <div class="rating">
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="far fa-star"></i>
+                                                            </div>
+                                                            <h3>Good</h3>
+                                                            <span><strong>Admin</strong> on <strong>Sep 21, 2020</strong></span>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+
+                                                            <a href="#" class="review-report-link">Report as Inappropriate</a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="review-form">
+                                                        <h3>Write a Review</h3>
+                                                        <form>
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="Enter your name">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <input type="email" class="form-control" placeholder="Enter your email">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" placeholder="Enter your review a title">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <textarea class="form-message" rows="5" placeholder="Write your comments here"></textarea>
+                                                            </div>
+                                                            <button type="submit" class="btn-submit">Submit Review</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Shop-Detls End -->
+
+        <!----------引入公共的 footer  ----------->
+        {{include "default/public/footer.html"}}
+
+
+        <!----------引入公共的 js 文件 ----------->
+        {{include 'default/public/footer-js.html'}}
+        
+    </body>
+</html>

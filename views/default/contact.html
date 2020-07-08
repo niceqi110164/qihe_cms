@@ -77,26 +77,7 @@
         
         <!-- Inner Banner -->
         <div class="inner-banner bg-shape2 bg-color2">
-            <div class="d-table">
-                <div class="d-table-cell">
-                    <div class="conatiner">
-                        <div class="inner-title text-center">
-                            <h3>Contact Us</h3>
-                            <ul>
-                                <li>
-                                    <a href="/">Home</a>
-                                </li>
-                                <li>
-                                    <i class="fas fa-chevron-right"></i>
-                                </li>
-                                <li>
-                                    Contact Us
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{include "default/public/innerBanner.html"}}
         </div>
         <!-- Inner Banner End -->
         
@@ -105,7 +86,7 @@
             <div class="container">
                 <div class="contact-title text-center mb-50">
                     <h2>
-                        Our Institute is Available From 9:00 AM to 10:00 PM (Sunday - Thursday) 
+                        我们的时间Our Institute is Available From 9:00 AM to 10:00 PM (Sunday - Thursday)
                         and Contact is Available 24/7
                     </h2>
                 </div>
@@ -143,7 +124,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 p-0">
                         <div class="contact-img">
-                            <img src="assets/img/contact.png" alt="Contact Images">
+                            <img src="{{__HOST__}}/default/assets/img/contact.png" alt="Contact Images">
                         </div>
                     </div>
                     <div class="col-lg-6">
