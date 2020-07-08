@@ -6,13 +6,11 @@
                 <div class="col-lg-4 col-sm-6">
                     <div class="footer-content">
                         <div class="footer-conten-title">
-                            <a href="index.html">
+                            <a href="/">
                                 <img src="{{__HOST__}}/default/assets/img/logo.png" alt="Logo">
                             </a>
                             <p>
-                                Lorem ipsum dolor sit amet, mattetur adipiscing elit, sed do eiusmod.
-                                Lorem ipsum dolor sit amet, mattetur adipiscing elit, sed do eiusmod.
-                                Lorem ipsum dolor sit amet, mattetur adipiscing elit, sed do eiusmod.
+                                Seven VFX成立于2018年，主要活动于电影、电视剧、广告等多个领域，专注于视觉特效技术的公司，团队由拥有多年特效制作，概念设计，现场实拍的艺术家组成，拥有丰富的工作经验和画面把控能力，能合理有效的整体设计制作方案。
                             </p>
                         </div>
 
@@ -48,7 +46,8 @@
                                 </li>
                                 <li>
                                     <a href="#" target="_blank">
-                                        <i class="fab fa-pinterest"></i>
+<!--                                        <i class="fab fa-pinterest"></i>-->
+                                        <i class="fab fa-qq"></i>
                                     </a>
                                 </li>
                             </ul>
@@ -111,7 +110,7 @@
 
                 <div class="col-lg-3 col-sm-6">
                     <div class="footer-list">
-                        <h3>Contacts</h3>
+                        <h3>Contacts Us</h3>
                         <ul>
                             <li>
                                 <a href="tel:+1123456789">
@@ -138,9 +137,17 @@
                                 </a>
                             </li>
                             <li>
-                                <i class="fas fa-map-marker-alt"></i>
-                                北京 朝阳区 建国路15号<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;华文国际C座 421
+                                <div style="display: flex;flex-flow: row nowrap;">
+                                    <i style="padding: 0 10px" class="fas fa-map-marker-alt"></i>
+                                    &nbsp;
+                                    <span >
+                                        北京 朝阳区 建国路15号 华文国际C座 421
+                                    </span>
+
+<!--                                    北京 朝阳区 建国路15号<br>-->
+<!--                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;华文国际C座 421-->
+                                </div>
+
                             </li>
                         </ul>
                     </div>
@@ -155,27 +162,13 @@
                 <div class="col-lg-7">
                     <div class="bottom-list">
                         <ul>
-                            <li>
-                                <a href="index.html">Home</a>
+                            {{each nav}}
+                            <li class="nav-item">
+                                <a href="{{$value.nav_url}}">
+                                {{$value.nav_title}}
+                                </a>
                             </li>
-                            <li>
-                                <a href="about.html">About</a>
-                            </li>
-                            <li>
-                                <a href="services.html">Services</a>
-                            </li>
-                            <li>
-                                <a href="gallery.html">Gallery</a>
-                            </li>
-                            <li>
-                                <a href="news.html">News</a>
-                            </li>
-                            <li>
-                                <a href="shop.html">Shop</a>
-                            </li>
-                            <li>
-                                <a href="contact.html">Contact</a>
-                            </li>
+                            {{/each}}
                         </ul>
                     </div>
                 </div>
