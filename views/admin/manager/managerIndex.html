@@ -79,7 +79,7 @@
                                     <td class="text-center">
                                        <div class="visible-md visible-lg hidden-sm hidden-xs btn-group center">
                                           <a class="btn btn-info btn-sm"
-                                             href="{{__HOST__}}/admin/manager/edit?id={{@$value._id}}">
+                                             href="{{__HOST__}}/admin/manager/managerEdit?id={{@$value._id}}">
 
                                              <i class="lni-pencil bigger-120"></i>
 
@@ -147,7 +147,7 @@
                $.get("/admin/delete",json,function (data,status) {
                    //console.log(data);
                    if(data.success){
-                       tankuang(300,data.message,'/admin/manager/');
+                       tankuang(300,data.message,'/admin/manager');
                    }
                })
            },

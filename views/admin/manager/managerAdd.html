@@ -27,30 +27,47 @@
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">编辑用户</h4>
+                                    <h5 class="card-title">添加用户</h5>
+                                    <!--
+                                    <div class="float-right">
+                                        <ul class="list-inline d-none d-sm-block">
+                                            <li>
+                                                <span class="status bg-primary"></span>
+                                                <span class="text-semibold">Return</span>
+                                            </li>
+                                            <li>
+                                                <span class="status bg-success"></span>
+                                                <span class="text-semibold">Revenue</span>
+                                            </li>
+                                            <li>
+                                                <span class="status bg-purple"></span>
+                                                <span class="text-semibold">Cost</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    -->
                                 </div>
                                 <div class="card-body">
                                     <!--<div id="morris-bar-example" style="height: 372px"></div>-->
                                     <div style="height: 372px">
-<!--                                        <form action="{{__HOST__}}/admin/manager/doEdit" method="post" role="form" id="form-validation">-->
+<!--                                        <form role="form" action="{{__HOST__}}/admin/manager/doAdd" method="post" id="form-validation" novalidate="novalidate">-->
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label control-label">用户名:</label>
                                                 <div class="col-sm-10">
-                                                    <input type="hidden" name="id" value="{{@list._id}}">
-                                                    <input type="text" required="" class="form-control" name="username" value="{{list.username}}">
+                                                    <input type="text" class="form-control" name="username" placeholder="Username">
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label control-label">密码:</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" required="" class="form-control" name="password" placeholder="Enter your password">
+                                                    <input type="text" class="form-control" name="password" placeholder="Enter your password">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label control-label">确认密码:</label>
                                                 <div class="col-sm-10">
-                                                    <input id="password" required="" type="text" class="form-control" name="rpassword" placeholder="Enter your password">
+                                                    <input id="password" type="text" class="form-control" name="rpassword" placeholder="Enter your password">
                                                 </div>
                                             </div>
 
@@ -153,78 +170,27 @@
 
 <script>
     $('#btn-common').click(function () {
-        let id = $("input[name=id]").val();
-        let username = $("input[name=username]").val();
-        let password = $("input[name=password]").val();
-        let rpassword = $("input[name=rpassword]").val();
-        //console.log(`用户名${username},密码${password},确认密码${rpassword}`);
-        //Ajax请求 "/admin/changeManagerAdd"
-        $.post("{{__HOST__}}/admin/manager/doEdit",{
-            id:id,
+           let username = $("input[name=username]").val();
+           let password = $("input[name=password]").val();
+           let rpassword = $("input[name=rpassword]").val();
+        //Ajax请求
+        $.post("/admin/manager/doAdd",{
             username:username,
             password:password,
             rpassword:rpassword
         }, function(data,status){
-            alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
-            //alert("status Loaded: " + status);
+            //alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
             if(data.success){
                 //alert(data.message);
-                function tankuang(pWidth,content) {
-                    $("#msg").remove();
-                    let html ='<div id="msg" style="position:fixed;top:50%;width:100%;height:30px;line-height:30px;margin-top:-15px;">' +
-                        '<p style="background:#000;' +
-                        'opacity:0.8;' +
-                        'width:'+ pWidth +'px;' +
-                        'color:#fff;' +
-                        'text-align:center;' +
-                        'padding:10px 10px;' +
-                        'margin:0 auto;' +
-                        'font-size:12px;' +
-                        'border-radius:4px;' +
-                        '">'+
-                        content +
-                        '</p>' +
-                        '</div>'
-                    $("body").append(html);
-                    let t = setTimeout(next,500);
-                    function next() {
-                        $("#msg").remove();
-                        window.location.href="/admin/manager";
-                    }
-                }
-                tankuang(300,data.message);
+                //成功地址跳转 "/admin/manager"
+                tankuang(300,data.message,"/admin/manager");
             }else{
-                function tankuang(pWidth,content) {
-                    $("#msg").remove();
-                    let html ='<div id="msg" style="position:fixed;top:50%;width:100%;height:30px;line-height:30px;margin-top:-15px;">' +
-                        '<p style="background:#000;' +
-                        'opacity:0.8;' +
-                        'width:'+ pWidth +'px;' +
-                        'color:#fff;' +
-                        'text-align:center;' +
-                        'padding:10px 10px;' +
-                        'margin:0 auto;' +
-                        'font-size:12px;' +
-                        'border-radius:4px;' +
-                        '">'+
-                        content +
-                        '</p>' +
-                        '</div>'
-                    $("body").append(html);
-                    let t = setTimeout(next,500);
-                    function next() {
-                        $("#msg").remove();
-                        return false;
-                        // window.location.href="/admin/manager/add";
-                        // history.go(-1);//不刷新页面
-                    }
-                }
-                tankuang(300,data.message);
+                //失败地址回到 "/admin/manager/add"
+                tankuang(300,data.message,"/admin/manager/managerAdd");
             }
         });
 
     })
 </script>
-
 </body>
 </html>
