@@ -3,9 +3,9 @@
         <ul class="side-nav-menu">
             <li class="side-nav-header">
                 <span>Navigation</span>
-            </li>
-            <li class="nav-item dropdown open">
-                <a href="#" class="dropdown-toggle">
+            </li>{{G.url}}
+            <li {{if G.url.length==1}} class="nav-item dropdown open" {{else}} class="nav-item dropdown" {{/if}} >
+                <a href="{{__HOST__}}/admin" class="dropdown-toggle">
                     <span class="icon-holder">
                         <i class="lni-dashboard"></i>
                     </span>
@@ -27,7 +27,7 @@
                 </ul>
                 -->
             </li>
-            <li class="nav-item dropdown">
+            <li {{if G.url[1]=="manager"}} class="nav-item dropdown open" {{else}} class="nav-item dropdown" {{/if}}>
                 <a class="dropdown-toggle" href="#">
                     <span class="icon-holder">
                         <i class="lni-cloud"></i>
@@ -38,54 +38,30 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu sub-down">
-                    <li>
-                        <a href="{{__HOST__}}/admin/manager/">管理员列表</a>
+                    <li {{if !G.url[2]}} class="active" {{/if}}>
+                        <a href="{{__HOST__}}/admin/manager">管理员列表</a>
                     </li>
-                    <li>
-                        <a href="{{__HOST__}}/admin/manager/add">增加管理员</a>
-                    </li>
-                    <li>
-                        <a href="email.html">Email</a>
-                    </li>
-                    <li>index
-                        <a href="calendar.html">Calendar</a>
-                    </li>
-                    <li>
-                        <a href="chat-app.html">Chat App</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
+                    <li {{if G.url[2]=="managerAdd"}} class="active" {{/if}}>
+                        <a href="{{__HOST__}}/admin/manager/managerAdd">增加管理员</a>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item dropdown">
+            <li {{if G.url[1]=="nav"}} class="nav-item dropdown open" {{else}} class="nav-item dropdown" {{/if}}>
                 <a class="dropdown-toggle" href="#">
                     <span class="icon-holder">
                         <i class="lni-layers"></i>
                     </span>
-                    <span class="title">UI Elements</span>
+                    <span class="title">导航管理</span>
                     <span class="arrow">
                         <i class="lni-chevron-right"></i>
                     </span>
                 </a>
                 <ul class="dropdown-menu sub-down">
-                    <li>
-                        <a href="alert.html">Alert</a>
+                    <li {{if !G.url[2]}} class="active" {{/if}}>
+                        <a href="{{__HOST__}}/admin/nav">导航列表</a>
                     </li>
-                    <li>
-                        <a href="badge.html">Badge</a>
-                    </li>
-                    <li>
-                        <a href="buttons.html">Buttons</a>
-                    </li>
-                    <li>
-                        <a href="cards.html">Cards</a>
-                    </li>
-                    <li>
-                        <a href="lists.html">Lists</a>
-                    </li>
-                    <li>
-                        <a href="typography.html">Typography</a>
+                    <li {{if G.url[2]=="navAdd"}} class="active" {{/if}}>
+                        <a href="{{__HOST__}}/admin/nav/navAdd">增加导航</a>
                     </li>
                 </ul>
             </li>
