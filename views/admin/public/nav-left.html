@@ -4,8 +4,8 @@
             <li class="side-nav-header">
                 <span>Navigation</span>
             </li>{{G.url}}
-            <li {{if G.url.length==1}} class="nav-item dropdown open" {{else}} class="nav-item dropdown" {{/if}} >
-                <a href="{{__HOST__}}/admin" class="dropdown-toggle">
+            <li {{if G.url.length==2}} class="nav-item dropdown open" {{else}} class="nav-item dropdown" {{/if}} >
+                <a href="{{__HOST__}}/admin/" class="dropdown-toggle">
                     <span class="icon-holder">
                         <i class="lni-dashboard"></i>
                     </span>
@@ -38,11 +38,11 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu sub-down">
-                    <li {{if !G.url[2]}} class="active" {{/if}}>
-                        <a href="{{__HOST__}}/admin/manager">管理员列表</a>
+                    <li {{if G.url[2]==""}} class="active" {{/if}}>
+                        <a href="{{__HOST__}}/admin/manager/">管理员列表</a>
                     </li>
                     <li {{if G.url[2]=="managerAdd"}} class="active" {{/if}}>
-                        <a href="{{__HOST__}}/admin/manager/managerAdd">增加管理员</a>
+                        <a href="{{__HOST__}}/admin/manager/managerAdd/">增加管理员</a>
                     </li>
                 </ul>
             </li>
@@ -57,27 +57,27 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu sub-down">
-                    <li {{if !G.url[2]}} class="active" {{/if}}>
-                        <a href="{{__HOST__}}/admin/nav">导航列表</a>
+                    <li {{if G.url[2]==""}} class="active" {{/if}}>
+                        <a href="{{__HOST__}}/admin/nav/">导航列表</a>
                     </li>
                     <li {{if G.url[2]=="navAdd"}} class="active" {{/if}}>
-                        <a href="{{__HOST__}}/admin/nav/navAdd">增加导航</a>
+                        <a href="{{__HOST__}}/admin/nav/navAdd/">增加导航</a>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item dropdown">
+            <li {{if G.url[1]=="siteSetting"}} class="nav-item dropdown open" {{else}} class="nav-item dropdown" {{/if}}>
                 <a class="dropdown-toggle" href="#">
                     <span class="icon-holder">
                         <i class="lni-timer"></i>
                     </span>
-                    <span class="title">Components</span>
+                    <span class="title">网站信息</span>
                     <span class="arrow">
                         <i class="lni-chevron-right"></i>
                     </span>
                 </a>
                 <ul class="dropdown-menu sub-down">
-                    <li>
-                        <a href="accordion.html">Accordions</a>
+                    <li {{if G.url[2]=="Logo"}} class="active" {{/if}}>
+                        <a href="{{__HOST__}}/admin/siteSetting/Logo/">Logo管理</a>
                     </li>
                     <li>
                         <a href="carousel.html">Carousel</a>
