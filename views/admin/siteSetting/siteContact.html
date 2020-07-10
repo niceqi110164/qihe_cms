@@ -35,42 +35,46 @@
                               <div class="form-group row">
                                  <label class="col-sm-2 col-form-label control-label" for="site_tel1">Tel1 :</label>
                                  <div class="col-sm-10">
-                                    <input id="site_tel1" type="text" class="form-control" name="site_tel1"
-                                           placeholder="请输入联系方式1">
+                                    <div id="site_tel1" class="form-control site_default-show">
+                                       <span>{{list.site_tel1}}</span>
+                                    </div>
+                                    <input type="hidden" name="id" value="{{@list._id}}">
                                  </div>
                               </div>
 
                               <div class="form-group row">
                                  <label class="col-sm-2 col-form-label control-label" for="site_tel2">Tel2 :</label>
                                  <div class="col-sm-10">
-                                    <input id="site_tel2" type="text" class="form-control" name="site_tel2"
-                                           placeholder="请输入联系方式2">
+                                    <div id="site_tel2" class="form-control site_default-show">
+                                       <span>{{list.site_tel2}}</span>
+                                    </div>
                                  </div>
                               </div>
-
-
 
                               <div class="form-group row">
                                  <label class="col-sm-2 col-form-label control-label" for="site_email1">Email1 :</label>
                                  <div class="col-sm-10">
-                                    <input id="site_email1" type="text" class="form-control" name="site_email1"
-                                           placeholder="请输入联系邮箱1">
+                                    <div id="site_email1" class="form-control site_default-show">
+                                       <span>{{list.site_email1}}</span>
+                                    </div>
                                  </div>
                               </div>
 
                               <div class="form-group row">
                                  <label class="col-sm-2 col-form-label control-label" for="site_email2">Email2 :</label>
                                  <div class="col-sm-10">
-                                    <input id="site_email2" type="text" class="form-control" name="site_email2"
-                                           placeholder="请输入联系邮箱2">
+                                    <div id="site_email2" class="form-control site_default-show">
+                                       <span>{{list.site_email2}}</span>
+                                    </div>
                                  </div>
                               </div>
 
                               <div class="form-group row">
                                  <label class="col-sm-2 col-form-label control-label" for="site_address">公司地址 :</label>
                                  <div class="col-sm-10">
-                                    <input id="site_address" type="text" class="form-control" name="site_address"
-                                           placeholder="请输入公司地址">
+                                    <div id="site_address" class="form-control site_default-show">
+                                       <span>{{list.site_address}}</span>
+                                    </div>
                                  </div>
                               </div>
 
@@ -79,7 +83,10 @@
                               <div class="form-group row">
                                  <label class="col-sm-2 col-form-label control-label"></label>
                                  <div class="col-sm-10">
-                                    <button id="btn-common" class="btn btn-common">提交</button>
+                                    <a class="btn btn-common"
+                                       href="{{__HOST__}}/admin/siteSetting/siteContactEdit?id={{@list._id}}">
+                                       修改
+                                    </a>
                                  </div>
                               </div>
 

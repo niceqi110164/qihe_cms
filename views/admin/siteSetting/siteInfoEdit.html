@@ -35,9 +35,7 @@
                               <div class="form-group row">
                                  <label class="col-sm-2 col-form-label control-label" for="site_title">网站标题 :</label>
                                  <div class="col-sm-10">
-                                    <div id="site_title" class="form-control site_default-show">
-                                       <span>{{list.site_title}}</span>
-                                    </div>
+                                    <input id="site_title" type="text" class="form-control" name="site_title" value="{{list.site_title}}" placeholder="请输入网站标题">
                                     <input type="hidden" name="id" value="{{@list._id}}">
                                  </div>
                               </div>
@@ -45,27 +43,22 @@
                               <div class="form-group row">
                                  <label class="col-sm-2 col-form-label control-label" for="site_keywords">关键字 :</label>
                                  <div class="col-sm-10">
-                                    <div id="site_keywords" class="form-control site_default-show">
-                                       <span>{{list.site_keywords}}</span>
-                                    </div>
+                                    <input id="site_keywords" type="text" class="form-control" name="site_keywords" value="{{list.site_keywords}}" placeholder="请输入网站关键字">
                                  </div>
                               </div>
 
                               <div class="form-group row">
                                  <label class="col-sm-2 col-form-label control-label" for="site_des">网站描述 :</label>
                                  <div class="col-sm-10">
-                                    <div id="site_des" class="form-control site_default-show">
-                                       <span>{{list.site_des}}</span>
-                                    </div>
+                                    <textarea class="site_des" name="site_des" id="site_des" cols="30" rows="3" placeholder="请输入网站介绍">{{list.site_des}}</textarea>
                                  </div>
                               </div>
 
                               <div class="form-group row">
                                  <label class="col-sm-2 col-form-label control-label" for="site_recordNum">备案号 :</label>
                                  <div class="col-sm-10">
-                                    <div id="site_recordNum" class="form-control site_default-show">
-                                       <span>{{list.site_recordNum}}</span>
-                                    </div>
+                                    <input id="site_recordNum" type="text" class="form-control" name="site_recordNum"
+  value="{{list.site_recordNum}}" placeholder="请输入网站备案号">
                                  </div>
                               </div>
 
@@ -88,11 +81,7 @@
                               <div class="form-group row">
                                  <label class="col-sm-2 col-form-label control-label"></label>
                                  <div class="col-sm-10">
-                                    <!--  <button id="btn-common" class="btn btn-common">修改</button>-->
-                                    <a class="btn btn-common"
-                                       href="{{__HOST__}}/admin/siteSetting/siteInfoEdit?id={{@list._id}}">
-                                       修改
-                                    </a>
+                                    <button id="btn-common" class="btn btn-common">提交</button>
                                  </div>
                               </div>
 
@@ -172,5 +161,35 @@
 <!----------引入公共的footer ----------->
 {{include 'admin/public/footer.html'}}
 
+<script>
+    $('#btn-common').click(function () {
+        let site_title = $("input[name=site_title]").val();
+        let id = $("input[name=id]").val();
+        let site_keywords = $("input[name=site_keywords]").val();
+        let site_des = $("textarea[name=site_des]").val();
+        let site_recordNum = $("input[name=site_recordNum]").val();
+        let site_status = $("input[name=site_status]").val();
+        //Ajax请求 "/admin/changeManagerAdd"
+        $.post("/admin/siteSetting/doSiteInfoEdit", {
+            site_title: site_title,
+            id:id,
+            site_keywords: site_keywords,
+            site_des: site_des,
+            site_recordNum: site_recordNum,
+            site_status:site_status
+        }, function (data, status) {
+            //alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
+            if (data.success) {
+                //alert(data.message);
+                //成功地址跳转 "/admin/manager"
+                tankuang(300, data.message, "/admin/siteSetting/siteInfo/");
+            } else {
+                //失败地址回到 "/admin/manager/add"
+                tankuang(300, data.message, "/admin/siteSetting/siteInfoEdit?id="+id);
+            }
+        });
+
+    })
+</script>
 </body>
 </html>

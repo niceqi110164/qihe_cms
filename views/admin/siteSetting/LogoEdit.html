@@ -29,42 +29,42 @@
                         </div>
                         <div class="card-body">
                            <div class="card-body-wrap">
-
-                              <div class="form-group row">
-                                 <label class="col-sm-2 col-form-label control-label">Header Logo :</label>
-                                 <div class="col-sm-10">
-                                    <div class="form-control site_default-show">
-                                       <!-- logo图片显示  -->
-                                       <div class="col-sm-10">
-                                          <img src="{{__HOST__}}/upload/{{list.header_logo}}" alt="header_logo"
-                                               width="80px">
+                              <form  enctype="multipart/form-data" >
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="header_logo">Header Logo :</label>
+                                    <div class="col-sm-10">
+                                       <div class="form-control">
+                                          <input id="header_logo" type="file" class="form-control"  name="header_logo"  placeholder="">
+                                          <input type="hidden" name="id" value="{{@list._id}}">
+                                          <!-- logo图片显示  -->
+                                          <div class="col-sm-10">
+                                             <img src="{{__HOST__}}/upload/{{list.header_logo}}" alt="header_logo" width="80px" >
+                                          </div>
                                        </div>
                                     </div>
                                  </div>
-                              </div>
 
-                              <div class="form-group row">
-                                 <label class="col-sm-2 col-form-label control-label">Footer Logo :</label>
-                                 <div class="col-sm-10">
-                                    <div class="form-control site_default-show">
-                                       <!-- logo图片显示  -->
-                                       <div class="col-sm-10">
-                                          <img src="{{__HOST__}}/upload/{{list.footer_logo}}" alt="footer_logo"
-                                               width="80px">
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="footer_logo">Footer Logo :</label>
+                                    <div class="col-sm-10">
+                                       <div class="form-control">
+                                          <input id="footer_logo" type="file" class="form-control" name="footer_logo"  placeholder="">
+
+                                          <!-- logo图片显示  -->
+                                          <div class="col-sm-10">
+                                             <img src="{{__HOST__}}/upload/{{list.footer_logo}}" alt="header_logo" width="80px" >
+                                          </div>
                                        </div>
                                     </div>
                                  </div>
-                              </div>
 
-                              <div class="form-group row">
-                                 <label class="col-sm-2 col-form-label control-label"></label>
-                                 <div class="col-sm-10">
-                                    <a class="btn btn-common"
-                                       href="{{__HOST__}}/admin/siteSetting/LogoEdit?id={{@list._id}}">
-                                       修改
-                                    </a>
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label"></label>
+                                    <div class="col-sm-10">
+                                       <button id="btn-common" class="btn btn-common">提交</button>
+                                    </div>
                                  </div>
-                              </div>
+                              </form>
 
                            </div>
                         </div>
@@ -133,39 +133,67 @@
 </div>
 
 
-<div id="preloader">
-   <div class="loader" id="loader-1"></div>
-</div>
+<!--<div id="preloader">-->
+<!--   <div class="loader" id="loader-1"></div>-->
+<!--</div>-->
 
 
 <!----------引入公共的footer ----------->
 {{include 'admin/public/footer.html'}}
 
 <script>
-    $('#btn-common').click(function () {
-        let form = new FormData();
-        console.log(document.filesForm);
-        // let nav_title = $("input[name=nav_title]").val();
-        // let nav_url = $("input[name=nav_url]").val();
-        // let sort = $("input[name=sort]").val();
-        // let status = $("input[name=status]").val();
-        //Ajax请求 "/admin/changeManagerAdd"
-        $.post("/admin/siteSetting/uploadLogo", {
-            nav_title: nav_title,
-            nav_url: nav_url,
-            sort: sort,
-            status: status,
-        }, function (data, status) {
-            //alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
-            if (data.success) {
-                //alert(data.message);
-                //成功地址跳转 "/admin/manager"
-                tankuang(300, data.message, "/admin/nav/");
-            } else {
+    $('#btn-common').click(function (e) {
+        e.preventDefault();
+        let formData = new FormData();
+        let id = $("input[name=id]").val();
+        let header_logo = $("input[name=header_logo]")[0].files[0];
+        let footer_logo = $("input[name=footer_logo]")[0].files[0];
+        formData.append("header_logo", header_logo);
+        formData.append("footer_logo", footer_logo);
+        formData.append("id", id);
+
+        //alert(JSON.stringify(id));
+
+        $.ajax({
+            type : "POST",
+            url : "/admin/siteSetting/LogoUpload",
+            data : formData,
+            cache : false,
+            processData : false,
+            contentType : false,
+            success : function(data) {
+                 //alert(JSON.parse(data));
+                 //alert(data)
+                 //     //成功地址跳转 "/admin/manager"
+                 tankuang(300, data.message, "{{__HOST__}}/admin/siteSetting/Logo");
+            },
+            error:function(data){
+                console.log(data);
                 //失败地址回到 "/admin/manager/add"
-                tankuang(300, data.message, "/admin/nav/navAdd/");
+                tankuang(300, data.message, "/admin/siteSetting/LogoEdit?id="+id);
             }
         });
+
+//http://127.0.0.1:3005/admin/siteSetting/LogoEdit?id=5f06808e23aa235918b5df57
+//http://127.0.0.1:3005/admin/siteSetting/LogoEdit?header_logo=footerLogo.png&id=5f06808e23aa235918b5df57&footer_logo=footerLogo.png
+
+
+        //Ajax请求 "/admin/changeManagerAdd"
+        // $.post("/admin/siteSetting/LogoUpload",
+        //     formData,
+        //     function (data, status) {
+        //         alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
+        //         if (data.success) {
+        //             //alert(data.message);
+        //             //成功地址跳转 "/admin/manager"
+        //             tankuang(300, data.message, "/admin/siteSetting/Logo/");
+        //         } else {
+        //            //失败地址回到 "/admin/manager/add"
+        //             tankuang(300, data.message, "/admin/siteSetting/LogoEdit?id="+id);
+        //         }
+        //     }
+        // );
+
 
     })
 </script>
