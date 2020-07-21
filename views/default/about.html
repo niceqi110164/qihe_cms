@@ -12,64 +12,8 @@
         <!-- End Preloader -->
 
         <!-- Start Heder Area -->
-        <header class="header-area top-header">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-8">
-                        <div class="header-left">
-                            <ul>
-                                <li>
-                                    <i class="fas fa-clock"></i>
-                                    SAT - THU (10:00 AM - 6:00PM)
-                                </li>
-                                <li>
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    28/A Street, New York, USA
-                                </li>
-                                <li>
-                                    <a href="tel:+1123456789">
-                                        <i class="fas fa-phone-alt"></i>
-                                        +1 123 456 789
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="social-icon">
-                            <ul>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-youtube"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>  
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-google-plus-g"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <!----------引入公共的 header-top  ----------->
+        {{include "default/public/header-top.html"}}
         <!-- End Heder Area -->
 
         <!----------引入公共的头部导航 nav-top  ----------->
@@ -90,25 +34,28 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="common-dtel-text">
-                            <h2>Dobby is Popular Swimming & Diving Service Since 2009</h2>
-                            <p>
-                                Satisfaction in of this hologram and more to elite. Caches away was remember harmonics.
-                                For achieveents children. Confidence will the feel in they a concept psychological the
-                                essential and years on then in snapped behind quietly founded, the a she and sported seven
-                                we've succeeded have her, interfaces small expect, to that, with too time can but met
-                                perfectly that it both from would indeed, that even have lowest more brief. Into step
-                                never are been for he that acquired to he groundtem, the empire own had multitude was
-                                go him over for an with that is completely me. Communicated.
+                            <h2 style="text-indent: 0.8em;margin-top:20px;">北京柒禾创客视觉技术有限公司</h2>
+                            <p style="text-indent: 2em;">
+                                Seven VFX成立于2018年，主要活动于电影、电视剧、广告等多个领域，以高质量制作为宗旨，按时完成为制作理念，专注于视觉特效技术的公司，团队由拥有多年特效制作，概念设计，现场实拍的艺术家组成，拥有丰富的工作经验和画面把控能力，能合理有效的整体设计制作方案。
                             </p>
-                            <p>
-                                Satisfaction in of this hologram and more to elite. Caches away was remember harmonics. For achieveents
-                                children. Confidence will the feel in they a concept psychological the essential and years on then in 
-                                snapped behind quietly founded, the a she and sported seven we've succeeded have her.
+                            <p style="text-indent: 2em;">
+                                参与过的作品有电影
+                                《健忘村》《闪光少女》
+                                《心理罪之城市之光》
+                                《京城81号》
+                                《红衣小女孩2》
                             </p>
-                            <p>
-                                Satisfaction in of this hologram and more to elite. Caches away was remember harmonics. For achieveents 
-                                children. Confidence will  the feel in they a concept psychological the essential and years on then in snapped
-                                behind quietly founded, the a she and sported seven we've succeeded have her.
+                            <p style="text-indent: 2em;">
+                                电视剧
+                                《三生三世十里桃花》
+                                《醉玲珑》
+                                《䆣汐缘》
+                                《橙红年代》
+                                《只为遇见你》
+                            </p>
+                            <p style="text-indent: 2em;">
+                                公司致力于不断向影视市场输出具有影响力的优秀作品，成为影视行业中具有影响力的品牌，
+                                是柒禾一直秉持的目标和前进的方向。
                             </p>
                         </div>
                     </div>
@@ -120,7 +67,7 @@
                             </div>
                             <div class="common-offer-text">
                                 <h3>Learn Swimming or Diving</h3>
-                                <a href="#" class="call-btn">Call Now</a>
+                                <a href="/contact" class="call-btn">Contact Now</a>
                             </div>
                         </div>
                     </div>
@@ -129,104 +76,12 @@
         </div>
         <!-- About Detl End -->
 
-        <!-- Product Area -->
-        <section class="product-area pt-100 pb-70">
-            <div class="container">
-                <div class="scetion-title text-center mb-50">
-                    <span>Our Products</span>
-                    <h2>Buy the Equipment You Need</h2>
-                    <p>
-                        The introduced now, the they expect, animals the desk, and catch 
-                        temple. More seven my couldn't it the character using recommended.
-                    </p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product-item">
-                            <a href="case-details.html">
-                                <img src="{{__HOST__}}/default/assets/img/product/1.jpg" alt="Product Images">
-                            </a>
-                            <div class="product-cotent">
-                                <div class="product-text">
-                                    <a href="case-details.html">
-                                        <h3>Diving Glass</h3>
-                                    </a>
-                                    <span>$35</span>
-                                </div>
-                                <a href="#" class="add-product">
-                                    <i class="flaticon-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product-item">
-                            <a href="case-details.html">
-                                <img src="{{__HOST__}}/default/assets/img/product/2.jpg" alt="Product Images">
-                            </a>
-                            <div class="product-cotent">
-                                <div class="product-text">
-                                    <a href="case-details.html">
-                                        <h3>Diving Rite</h3>
-                                    </a>
-                                    <span>$30</span>
-                                </div>
-                                <a href="#" class="add-product">
-                                    <i class="flaticon-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product-item">
-                            <a href="case-details.html">
-                                <img src="{{__HOST__}}/default/assets/img/product/3.jpg" alt="Product Images">
-                            </a>
-                            <div class="product-cotent">
-                                <div class="product-text">
-                                    <a href="case-details.html">
-                                        <h3>Fins Bungee</h3>
-                                    </a>
-                                    <span>$75</span>
-                                </div>
-                                <a href="#" class="add-product">
-                                    <i class="flaticon-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="product-item">
-                            <a href="case-details.html">
-                                <img src="{{__HOST__}}/default/assets/img/product/4.jpg" alt="Product Images">
-                            </a>
-                            <div class="product-cotent">
-                                <div class="product-text">
-                                    <a href="case-details.html">
-                                        <h3>Life Jacket</h3>
-                                    </a>
-                                    <span>$25</span>
-                                </div>
-                                <a href="#" class="add-product">
-                                    <i class="flaticon-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Product Area End -->
-
         <!-- Trainers Area -->
-        <section class="trainers-area pt-100 pb-70">
+        <section class="trainers-area ptb-100 " style="background:#fffafa ">
             <div class="container">
                 <div class="scetion-title text-center mb-50">
-                    <span>Our Trainers</span>
-                    <h2>Our Professional Trainers</h2>
+                    <span>Our Team</span>
+                    <h2>Our Professional Team</h2>
                     <p>
                         The introduced now, the they expect,animals the desk, and catch temple. 
                         More seven my couldn't it the character using recommended.
@@ -240,29 +95,29 @@
                             </a>
                             <div class="trainer-content">
                                 <a href="instructor.html">
-                                    <h3>John Doe</h3>
+                                    <h3>张三</h3>
                                 </a>
-                                <span>Professional Diver</span>
+                                <span>技术总监</span>
                                 <div class="social-icon">
                                     <ul>
                                         <li>
                                             <a href="#" target="_blank">
+                                                <i class="fab fa-qq"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fab fa-weixin"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fab fa-weibo"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
                                                 <i class="fab fa-linkedin-in"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fas fa-envelope"></i>
                                             </a>
                                         </li>
                                     </ul>
@@ -278,9 +133,9 @@
                             </a>
                             <div class="trainer-content">
                                 <a href="instructor.html">
-                                    <h3>Evana Doe</h3>
+                                    <h3>李四</h3>
                                 </a>
-                                <span>Professional Trainer</span>
+                                <span>技术总监</span>
                                 <div class="social-icon">
                                     <ul>
                                         <li>
@@ -314,12 +169,12 @@
                             <a href="instructor.html">
                                 <img src="{{__HOST__}}/default/assets/img/trainers/3.jpg" alt="Trainers Images">
                             </a>
-                            <div class="trainer-content active">
+                            <div class="trainer-content ">
                                 <a href="instructor.html">
-                                    <h3>Smith Doe</h3>
+                                    <h3>王五</h3>
                                 </a>
-                                <span>Professional Swimmer</span>
-                                <div class="social-icon active">
+                                <span>技术总监</span>
+                                <div class="social-icon ">
                                     <ul>
                                         <li>
                                             <a href="#" target="_blank">
@@ -354,9 +209,9 @@
                             </a>
                             <div class="trainer-content">
                                 <a href="instructor.html">
-                                    <h3>Marida Doe</h3>
+                                    <h3>赵六</h3>
                                 </a>
-                                <span>Professional Instructor</span>
+                                <span>技术总监</span>
                                 <div class="social-icon">
                                     <ul>
                                         <li>
@@ -389,116 +244,6 @@
         </section>
         <!-- Trainers Area End -->
 
-        <!-- News Area -->
-        <section class="news-area pb-70">
-            <div class="container">
-                <div class="scetion-title text-center mb-50">
-                    <span>Our News</span>
-                    <h2>Daily Updates of Our Dobby</h2>
-                    <p>
-                        The introduced now, the they expect, animals the desk, and catch temple. 
-                        More seven my couldn't it the character using recommended.
-                    </p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="news-card">
-                            <div class="news-img">
-                                <a href="news-details.html">
-                                    <img src="{{__HOST__}}/default/assets/img/news/1.jpg" alt="News Images">
-                                </a>
-                                <div class="sub-text">
-                                    <a href="#">SCUBA DIVING</a> 
-                                </div>
-                            </div>
-                            <ul>
-                                <li>
-                                   <a href="">John Doe</a> 
-                                </li>
-                                <li>26 APR 2019</li>
-                            </ul>
-                            <div class="news-content">
-                                <a href="news-details.html">
-                                    <h3>New Scuba Diving Course Sheet Will Update Soon</h3>
-                                </a>
-                                <p>
-                                    Less entirely counter. Parent, curiously, must would frequency,
-                                    would very of wellfeigned legs, doctor back in the business.
-                                </p>
-                                <a href="news-details.html" class="news-icon">
-                                    Read More 
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="news-card">
-                            <div class="news-img">
-                                <a href="news-details.html">
-                                    <img src="{{__HOST__}}/default/assets/img/news/2.jpg" alt="News Images">
-                                </a>
-                                <div class="sub-text"> 
-                                    <a href="#">
-                                        SWIMMING EVENT
-                                    </a>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a href="#">John Doe</a> 
-                                </li>
-                                <li>27 APR 2019</li>
-                            </ul>
-                            <div class="news-content">
-                                <a href="news-details.html">
-                                    <h3>A Diving Event Will Happen at Dobby Center</h3>
-                                </a>
-                                <p>
-                                    Less entirely counter. Parent, curiously, must would frequency,
-                                    would very of wellfeigned legs, doctor back in the business.
-                                </p>
-                                <a href="news-details.html" class="news-icon">
-                                    Read More 
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-3">
-                        <div class="news-card">
-                            <div class="news-img">
-                                <a href="news-details.html">
-                                    <img src="{{__HOST__}}/default/assets/img/news/3.jpg" alt="News Images">
-                                </a>
-                                <div class="sub-text">
-                                    <a href="#">EQUIPMENT</a>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a href="#">John Doe</a> 
-                                </li>
-                                <li>28 APR 2019</li>
-                            </ul>
-                            <div class="news-content">
-                                <a href="news-details.html">
-                                    <h3>A Swimming Event Will Happen at Dobby Center</h3>
-                                </a>
-                                <p>
-                                    Less entirely counter. Parent, curiously, must would frequency,
-                                    would very of wellfeigned legs, doctor back in the business.
-                                </p>
-                                <a href="news-details.html" class="news-icon">
-                                    Read More 
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- News Area End -->
 
         <!----------引入公共的 footer  ----------->
         {{include "default/public/footer.html"}}

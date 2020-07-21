@@ -12,64 +12,8 @@
         <!-- End Preloader -->
 
         <!-- Start Heder Area -->
-        <header class="header-area top-header">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-8">
-                        <div class="header-left">
-                            <ul>
-                                <li>
-                                    <i class="fas fa-clock"></i>
-                                    SAT - THU (10:00 AM - 6:00PM)
-                                </li>
-                                <li>
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    28/A Street, New York, USA
-                                </li>
-                                <li>
-                                    <a href="tel:+1123456789">
-                                        <i class="fas fa-phone-alt"></i>
-                                        +1 123 456 789
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="social-icon">
-                            <ul>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-youtube"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>  
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-google-plus-g"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <!----------引入公共的 header-top  ----------->
+        {{include "default/public/header-top.html"}}
         <!-- End Heder Area -->
 
         <!----------引入公共的头部导航 nav-top  ----------->
@@ -197,7 +141,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-item">
                             <a href="case-details.html">
-                                <img src="assets/img/product/1.jpg" alt="Product Images">
+                                <img src="{{__HOST__}}/default/assets/img/product/1.jpg" alt="Product Images">
                             </a>
                             <div class="product-cotent">
                                 <div class="product-text">
@@ -216,7 +160,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-item">
                             <a href="case-details.html">
-                                <img src="assets/img/product/2.jpg" alt="Product Images">
+                                <img src="{{__HOST__}}/default/assets/img/product/2.jpg" alt="Product Images">
                             </a>
                             <div class="product-cotent">
                                 <div class="product-text">
@@ -235,7 +179,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-item">
                             <a href="case-details.html">
-                                <img src="assets/img/product/3.jpg" alt="Product Images">
+                                <img src="{{__HOST__}}/default/assets/img/product/3.jpg" alt="Product Images">
                             </a>
                             <div class="product-cotent">
                                 <div class="product-text">
@@ -254,7 +198,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="product-item">
                             <a href="case-details.html">
-                                <img src="assets/img/product/4.jpg" alt="Product Images">
+                                <img src="{{__HOST__}}/default/assets/img/product/4.jpg" alt="Product Images">
                             </a>
                             <div class="product-cotent">
                                 <div class="product-text">
@@ -289,7 +233,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="trainer-card">
                             <a href="instructor.html">
-                                <img src="assets/img/trainers/1.jpg" alt="Trainers Images">
+                                <img src="{{__HOST__}}/default/assets/img/trainers/1.jpg" alt="Trainers Images">
                             </a>
                             <div class="trainer-content">
                                 <a href="instructor.html">
@@ -327,7 +271,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="trainer-card">
                             <a href="instructor.html">
-                                <img src="assets/img/trainers/2.jpg" alt="Trainers Images">
+                                <img src="{{__HOST__}}/default/assets/img/trainers/2.jpg" alt="Trainers Images">
                             </a>
                             <div class="trainer-content">
                                 <a href="instructor.html">
@@ -365,14 +309,14 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="trainer-card">
                             <a href="instructor.html">
-                                <img src="assets/img/trainers/3.jpg" alt="Trainers Images">
+                                <img src="{{__HOST__}}/default/assets/img/trainers/3.jpg" alt="Trainers Images">
                             </a>
-                            <div class="trainer-content active">
+                            <div class="trainer-content">
                                 <a href="instructor.html">
                                     <h3>Smith Doe</h3>
                                 </a>
                                 <span>Professional Swimmer</span>
-                                <div class="social-icon active">
+                                <div class="social-icon">
                                     <ul>
                                         <li>
                                             <a href="#" target="_blank">
@@ -403,7 +347,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="trainer-card">
                             <a href="instructor.html">
-                                <img src="assets/img/trainers/4.jpg" alt="Trainers Images">
+                                <img src="{{__HOST__}}/default/assets/img/trainers/4.jpg" alt="Trainers Images">
                             </a>
                             <div class="trainer-content">
                                 <a href="instructor.html">
@@ -458,7 +402,7 @@
                         <div class="news-card">
                             <div class="news-img">
                                 <a href="news-details.html">
-                                    <img src="assets/img/news/1.jpg" alt="News Images">
+                                    <img src="{{__HOST__}}/default/assets/img/news/1.jpg" alt="News Images">
                                 </a>
                                 <div class="sub-text">
                                     <a href="#">SCUBA DIVING</a> 
@@ -489,7 +433,7 @@
                         <div class="news-card">
                             <div class="news-img">
                                 <a href="news-details.html">
-                                    <img src="assets/img/news/2.jpg" alt="News Images">
+                                    <img src="{{__HOST__}}/default/assets/img/news/2.jpg" alt="News Images">
                                 </a>
                                 <div class="sub-text"> 
                                     <a href="#">
@@ -522,7 +466,7 @@
                         <div class="news-card">
                             <div class="news-img">
                                 <a href="news-details.html">
-                                    <img src="assets/img/news/3.jpg" alt="News Images">
+                                    <img src="{{__HOST__}}/default/assets/img/news/3.jpg" alt="News Images">
                                 </a>
                                 <div class="sub-text">
                                     <a href="#">EQUIPMENT</a>
