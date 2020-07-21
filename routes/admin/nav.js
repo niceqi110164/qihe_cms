@@ -94,7 +94,7 @@ router.post('/doNavEdit',async (ctx)=>{
     if(!/[a-zA-Z0-9\u4e00-\u9fa5_]{2,20}/.test(json.nav_title)){//[a-zA-Z\u4e00-\u9fa5]{4,20}
         /**返回失败数据*/
         ctx.body = {'message':'标题不合法',success:false};
-    }else if(!/^\/[a-zA-Z]/.test(json.nav_url)){
+    }else if(!/^\/([a-zA-Z])*/.test(json.nav_url)){
         /**返回失败数据*/
         ctx.body = {'message':'链接地址格式不正确',success:false};
     }else {

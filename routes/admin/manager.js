@@ -9,32 +9,33 @@ router.get('/',async (ctx)=>{
 
     let result= await DB.find('managers',{});
     //console.log(result);
-    await ctx.render('admin/manager/index',{
+    await ctx.render('admin/manager/managerIndex',{
         list:result
     });
 });
 
 
 /**========== 增加管理员 ============*/
-router.get('/add',async (ctx)=>{
-    await ctx.render('admin/manager/add');
+router.get('/managerAdd',async (ctx)=>{
+
+    await ctx.render('admin/manager/managerAdd');
 });
 
 /**========== doAdd操作 ============*/
 router.post('/doAdd', async (ctx)=>{
     /**1.获取表单数据*/
-    console.log(ctx.request.body);
+    //console.log(ctx.request.body);
     let json = {
         status:"1",
         last_time:new Date()
     };
 
     json.username = ctx.request.body.username;
-   // json.password = tools.getMd5(ctx.request.body.password);
-    json.password = ctx.request.body.password;
+    json.password = tools.getMd5(ctx.request.body.password);
+    //json.password = ctx.request.body.password;
     json.rpassword = ctx.request.body.rpassword;
     /**2.验证表单数据是否合法*/
-    if(!/^([a-zA-Z\u4E00-\u9FA5]*?)$/.test(json.username)){
+    if(!/[a-zA-Z\u4e00-\u9fa5]{4,20}/.test(json.username)){//[a-zA-Z\u4e00-\u9fa5]{4,20}
         /**返回失败数据*/
         ctx.body = {'message':'用户名不合法',success:false};
     }else if(ctx.request.body.password.length<6 ||ctx.request.body.password.length>20){
@@ -64,14 +65,14 @@ router.post('/doAdd', async (ctx)=>{
 
 
 /**========== 编辑管理员 ============*/
-router.get('/edit',async (ctx)=>{
+router.get('/managerEdit',async (ctx)=>{
     /**get 方式获取id*/
     let id = ctx.query.id;
     /**到数据库 managers 表中查询数据*/
     let result = await DB.find('managers',{"_id":DB.getObjectID(id)});
     /**判断是否有数据*/
     if(result.length>0){
-        await ctx.render('admin/manager/edit',{
+        await ctx.render('admin/manager/managerEdit',{
             list:result[0]
         });
     }else{
@@ -87,22 +88,27 @@ router.post('/doEdit',async (ctx)=>{
     //1.获取表单数据
     let id = ctx.request.body.id;
     /**2.验证表单数据是否合法*/
-    if(ctx.request.body.password !== ""){//当密码部位空的时候向下执行
-        if(ctx.request.body.password.length>20 || ctx.request.body.password.length<6){
-            /**返回失败数据*/
-            ctx.body = {'message':'密码长度为6~20',success:false};
-        }else if(ctx.request.body.password !== ctx.request.body.rpassword){
-            /**返回失败数据*/
-            ctx.body = {'message':'两次密码不一致',success:false};
+    if(!/[a-zA-Z\u4e00-\u9fa5]{4,20}/.test(ctx.request.body.username)){//[a-zA-Z\u4e00-\u9fa5]{4,20}
+        /**返回失败数据*/
+        ctx.body = {'message':'用户名不合法',success:false};
+    }else if(ctx.request.body.password.length<6 ||ctx.request.body.password.length>20){
+        /**返回失败数据*/
+        ctx.body = {'message':'密码长度为6~20',success:false};
+    }else if(ctx.request.body.password !== ctx.request.body.rpassword){
+        /**返回失败数据*/
+        ctx.body = {'message':'两次密码不一致',success:false};
+    }else{
+        /**3.在数据库查询当前要增加的管理员是否存在*/
+        let updateResult =await DB.update("managers",{"_id":DB.getObjectID(id)},{
+            username:ctx.request.body.username,
+            password:tools.getMd5(ctx.request.body.password)
+        });
+        if(updateResult.result.ok === 1){
+            /**返回成功数据*/
+            ctx.body = {'message':'修改成功',success:true};
         }else{
-            let updateResult =await DB.update("managers",{"_id":DB.getObjectID(id)},{
-                username:ctx.request.body.username,
-                password:ctx.request.body.password
-            });
-            if(updateResult.result.ok === 1){
-                /**返回成功数据*/
-                ctx.body = {'message':'修改成功',success:true};
-            }
+            /**返回成功数据*/
+            ctx.body = {'message':'修改失败',success:false};
         }
     }
 });
@@ -110,11 +116,10 @@ router.post('/doEdit',async (ctx)=>{
 
 
 
-
-
+/**
 router.get('/delete',async (ctx)=>{
     ctx.body = '后台模板===删除用户'
-});
+});*/
 
 
 
