@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<!----------引入公共的header ----------->
+{{include 'admin/public/header.html'}}
+<body>
+
+
+<div class="app header-default side-nav-dark">
+   <div class="layout">
+
+      <!----------上边的nav ----------->
+      {{include 'admin/public/nav-top.html'}}
+
+      <!----------左边的nav ----------->
+      {{include 'admin/public/nav-left.html'}}
+
+
+      <div class="page-container">
+
+         <div class="main-content">
+
+            <!--   引入公共的 面包屑导航    -->
+            {{include "admin/public/breadcrumb.html"}}
+
+            <div class="container-fluid">
+
+               <div class="row">
+                  <div class="col-md-8">
+                     <div class="card">
+                        <div class="card-header">
+                           <h5 class="card-title">aboutUs </h5>
+                        </div>
+                        <div class="card-body">
+                           <div class="card-body-wrap">
+                              <div class="form-group row">
+                                 <label class="col-sm-2 col-form-label control-label" for="aboutUs_title">公司名称 :</label>
+                                 <div class="col-sm-10">
+                                    <div id="aboutUs_title" class="form-control site_default-show">
+                                       <span>{{list.aboutUs_title}}</span>
+                                    </div>
+                                    <input type="hidden" name="id" value="{{@list._id}}">
+                                 </div>
+                              </div>
+
+                              <div class="form-group row">
+                                 <label class="col-sm-2 col-form-label control-label" for="aboutUs_des">公司介绍 :</label>
+                                 <div class="col-sm-10">
+                                    <div id="aboutUs_des" class="form-control site_default-show">
+                                       <span>{{list.aboutUs_des}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="form-group row">
+                                 <label class="col-sm-2 col-form-label control-label" for="aboutUs_film">电影 :</label>
+                                 <div class="col-sm-10">
+                                    <div id="aboutUs_film" class="form-control site_default-show">
+                                       <span>{{list.aboutUs_film}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="form-group row">
+                                 <label class="col-sm-2 col-form-label control-label" for="aboutUs_TV">电视剧 :</label>
+                                 <div class="col-sm-10">
+                                    <div id="aboutUs_TV" class="form-control site_default-show">
+                                       <span>{{list.aboutUs_TV}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="form-group row">
+                                 <label class="col-sm-2 col-form-label control-label" for="aboutUs_develop">公司目标 :</label>
+                                 <div class="col-sm-10">
+                                    <div id="aboutUs_develop" class="form-control site_default-show">
+                                       <span>{{list.aboutUs_develop}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="form-group row">
+                                 <label class="col-sm-2 col-form-label control-label">Header Banner :</label>
+                                 <div class="col-sm-10">
+                                    <div class="form-control site_default-show">
+                                       <!-- logo图片显示  -->
+                                       <div class="col-sm-10">
+                                          <img src="{{__HOST__}}/upload/{{list.aboutUs_banner}}" alt="header_logo"
+                                               width="80px">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="form-group row">
+                                 <label class="col-sm-2 col-form-label control-label">small Banner :</label>
+                                 <div class="col-sm-10">
+                                    <div class="form-control site_default-show">
+                                       <!-- logo图片显示  -->
+                                       <div class="col-sm-10">
+                                          <img src="{{__HOST__}}/upload/{{list.aboutUs_smallPic}}" alt="footer_logo"
+                                               width="80px">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="form-group row">
+                                 <label class="col-sm-2 col-form-label control-label"></label>
+                                 <div class="col-sm-10">
+                                    <!--  <button id="btn-common" class="btn btn-common">修改</button>-->
+                                    <a class="btn btn-common"
+                                       href="{{__HOST__}}/admin/aboutUs/aboutUsEdit?id={{@list._id}}">
+                                       修改
+                                    </a>
+                                 </div>
+                              </div>
+
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="row">
+                        <div class="col-12 stretch-card">
+                           <div class="card">
+                              <div class="card-body">
+                                 <div class="sales-info">
+                                    <h3>14,0000</h3>
+                                    <span>Overall Performance</span>
+                                 </div>
+                                 <div class="progress progress-sm">
+                                    <div class="progress-bar bg-primary" role="progressbar"
+                                         aria-valuenow="35" style="width: 75%"></div>
+                                 </div>
+                                 <p>42% higher than last month</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 stretch-card">
+                           <div class="card">
+                              <div class="card-body">
+                                 <div class="sales-info">
+                                    <h3>34,000</h3>
+                                    <span>Active Installations</span>
+                                 </div>
+                                 <div class="progress progress-sm">
+                                    <div class="progress-bar bg-success" role="progressbar"
+                                         aria-valuenow="35" style="width: 55%"></div>
+                                 </div>
+                                 <p>19% less than last month</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 stretch-card">
+                           <div class="card">
+                              <div class="card-body">
+                                 <div class="sales-info">
+                                    <h3>11,279</h3>
+                                    <span>Total downloads</span>
+                                 </div>
+                                 <div class="progress progress-sm">
+                                    <div class="progress-bar bg-purple" role="progressbar"
+                                         aria-valuenow="35" style="width: 35%"></div>
+                                 </div>
+                                 <p>73% higher than last month</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+
+
+         <!-- 版权信息  -->
+         {{include "admin/public/footer-copyright.html"}}
+
+      </div>
+
+   </div>
+</div>
+
+
+<div id="preloader">
+   <div class="loader" id="loader-1"></div>
+</div>
+
+
+<!----------引入公共的footer ----------->
+{{include 'admin/public/footer.html'}}
+
+</body>
+</html>

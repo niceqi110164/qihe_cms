@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<!----------引入公共的header ----------->
+{{include 'admin/public/header.html'}}
+<body>
+
+<div class="app header-default side-nav-dark">
+   <div class="layout">
+
+      <!----------上边的nav ----------->
+      {{include 'admin/public/nav-top.html'}}
+
+      <!----------左边的nav ----------->
+      {{include 'admin/public/nav-left.html'}}
+
+      <div class="page-container">
+         <div class="main-content">
+
+            <!--   引入公共的 面包屑导航    -->
+            {{include "admin/public/breadcrumb.html"}}
+
+            <div class="container-fluid">
+
+               <div class="row">
+                  <div class="col-md-8">
+                     <div class="card">
+                        <div class="card-header">
+                           <h5 class="card-title">设置 About Us</h5>
+                        </div>
+                        <div class="card-body">
+                           <div class="card-body-wrap">
+                              <form  enctype="multipart/form-data" >
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="aboutUs_title">公司名称 :</label>
+                                    <div class="col-sm-10">
+                                       <input id="aboutUs_title" type="text" class="form-control" name="aboutUs_title" value="{{list.aboutUs_title}}" placeholder="请输入公司名称">
+                                       <input type="hidden" name="id" value="{{@list._id}}">
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="aboutUs_des">公司介绍 :</label>
+                                    <div class="col-sm-10">
+                                       <textarea class="site_des" name="aboutUs_des" id="aboutUs_des" cols="30" rows="3" placeholder="请输入公司介绍">{{list.aboutUs_des}}</textarea>
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="aboutUs_film">电影 :</label>
+                                    <div class="col-sm-10">
+                                       <textarea class="site_des" name="aboutUs_film" id="aboutUs_film" cols="30" rows="3" placeholder="请输入电影">{{list.aboutUs_film}}</textarea>
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="aboutUs_TV">电视剧 :</label>
+                                    <div class="col-sm-10">
+                                       <textarea class="site_des" name="aboutUs_TV" id="aboutUs_TV" cols="30" rows="3" placeholder="请输入电视剧">{{list.aboutUs_TV}}</textarea>
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="aboutUs_develop">公司目标 :</label>
+                                    <div class="col-sm-10">
+                                       <textarea class="site_des" name="aboutUs_develop" id="aboutUs_develop" cols="30" rows="3" placeholder="请输入公司目标">{{list.aboutUs_develop}}</textarea>
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="aboutUs_banner">Header Banner :</label>
+                                    <div class="col-sm-10">
+                                       <div class="form-control">
+                                          <input id="aboutUs_banner" type="file" class="form-control"  name="aboutUs_banner"  placeholder="">
+                                          <!-- logo图片显示  -->
+                                          <div class="col-sm-10">
+                                             <img src="{{__HOST__}}/upload/{{list.aboutUs_banner}}" alt="aboutUs_banner" width="80px" >
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="aboutUs_smallPic">Footer Logo :</label>
+                                    <div class="col-sm-10">
+                                       <div class="form-control">
+                                          <input id="aboutUs_smallPic" type="file" class="form-control" name="aboutUs_smallPic"  placeholder="">
+
+                                          <!-- logo图片显示  -->
+                                          <div class="col-sm-10">
+                                             <img src="{{__HOST__}}/upload/{{list.aboutUs_smallPic}}" alt="aboutUs_smallPic" width="80px" >
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label"></label>
+                                    <div class="col-sm-10">
+                                       <button id="btn-common" class="btn btn-common">提交</button>
+                                    </div>
+                                 </div>
+                              </form>
+
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="row">
+                        <div class="col-12 stretch-card">
+                           <div class="card">
+                              <div class="card-body">
+                                 <div class="sales-info">
+                                    <h3>14,0000</h3>
+                                    <span>Overall Performance</span>
+                                 </div>
+                                 <div class="progress progress-sm">
+                                    <div class="progress-bar bg-primary" role="progressbar"
+                                         aria-valuenow="35" style="width: 75%"></div>
+                                 </div>
+                                 <p>42% higher than last month</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 stretch-card">
+                           <div class="card">
+                              <div class="card-body">
+                                 <div class="sales-info">
+                                    <h3>34,000</h3>
+                                    <span>Active Installations</span>
+                                 </div>
+                                 <div class="progress progress-sm">
+                                    <div class="progress-bar bg-success" role="progressbar"
+                                         aria-valuenow="35" style="width: 55%"></div>
+                                 </div>
+                                 <p>19% less than last month</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 stretch-card">
+                           <div class="card">
+                              <div class="card-body">
+                                 <div class="sales-info">
+                                    <h3>11,279</h3>
+                                    <span>Total downloads</span>
+                                 </div>
+                                 <div class="progress progress-sm">
+                                    <div class="progress-bar bg-purple" role="progressbar"
+                                         aria-valuenow="35" style="width: 35%"></div>
+                                 </div>
+                                 <p>73% higher than last month</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+
+         <!-- 版权信息  -->
+         {{include "admin/public/footer-copyright.html"}}
+
+      </div>
+
+   </div>
+</div>
+
+
+<!--<div id="preloader">-->
+<!--   <div class="loader" id="loader-1"></div>-->
+<!--</div>-->
+
+
+<!----------引入公共的footer ----------->
+{{include 'admin/public/footer.html'}}
+
+<script>
+    $('#btn-common').click(function (e) {
+        e.preventDefault();
+        let formData = new FormData();
+        let id = $("input[name=id]").val();
+        let aboutUs_title = $("input[name=aboutUs_title]").val();
+        let aboutUs_des = $("textarea[name=aboutUs_des]").val();
+        let aboutUs_film = $("textarea[name=aboutUs_film]").val();
+        let aboutUs_TV = $("textarea[name=aboutUs_TV]").val();
+        let aboutUs_develop = $("textarea[name=aboutUs_develop]").val();
+        let aboutUs_banner = $("input[name=aboutUs_banner]")[0].files[0];
+        let aboutUs_smallPic = $("input[name=aboutUs_smallPic]")[0].files[0];
+
+        formData.append("aboutUs_banner", aboutUs_banner);
+        formData.append("aboutUs_smallPic", aboutUs_smallPic);
+        formData.append("id", id);
+        formData.append("aboutUs_title", aboutUs_title);
+        formData.append("aboutUs_des", aboutUs_des);
+        formData.append("aboutUs_film", aboutUs_film);
+        formData.append("aboutUs_TV", aboutUs_TV);
+        formData.append("aboutUs_develop", aboutUs_develop);
+
+        //alert(JSON.stringify(id));
+
+        $.ajax({
+            type : "POST",
+            url : "/admin/aboutUs/aboutUsUpload",
+            data : formData,
+            cache : false,
+            processData : false,
+            contentType : false,
+            success : function(data) {
+                 //alert(JSON.parse(data));
+                 //alert(data)
+                 //     //成功地址跳转 "/admin/manager"
+                 tankuang(300, data.message, "{{__HOST__}}/admin/aboutUs/");
+            },
+            error:function(data){
+                console.log(data);
+                //失败地址回到 "/admin/manager/add"
+                tankuang(300, data.message, "/admin/aboutUs/aboutUsEdit?id="+id);
+            }
+        });
+
+//http://127.0.0.1:3005/admin/siteSetting/LogoEdit?id=5f06808e23aa235918b5df57
+//http://127.0.0.1:3005/admin/siteSetting/LogoEdit?header_logo=footerLogo.png&id=5f06808e23aa235918b5df57&footer_logo=footerLogo.png
+
+
+        //Ajax请求 "/admin/changeManagerAdd"
+        // $.post("/admin/siteSetting/LogoUpload",
+        //     formData,
+        //     function (data, status) {
+        //         alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
+        //         if (data.success) {
+        //             //alert(data.message);
+        //             //成功地址跳转 "/admin/manager"
+        //             tankuang(300, data.message, "/admin/siteSetting/Logo/");
+        //         } else {
+        //            //失败地址回到 "/admin/manager/add"
+        //             tankuang(300, data.message, "/admin/siteSetting/LogoEdit?id="+id);
+        //         }
+        //     }
+        // );
+
+
+    })
+</script>
+</body>
+</html>
