@@ -73,6 +73,66 @@ router.post('/aboutUsUpload',
 );
 
 
+/**========== team 操作 ============*/
+router.get('/team', async (ctx)=>{
+    let teamListResult = await DB.find('teamList',{});
+    //console.log(teamListResult);
+    await ctx.render('admin/aboutUs/teamIndex',{
+        list:teamListResult
+    })
+})
+
+
+/**========== teamEdit 操作 ============*/
+router.get('/teamEdit', async (ctx)=>{
+    /**get 方式获取id*/
+    let id = ctx.query.id;
+    let teamEditResult = await DB.find('teamList',{"_id":DB.getObjectID(id)});
+    if(teamEditResult.length>0){
+        await ctx.render('admin/aboutUs/teamEdit',{
+            list:teamEditResult[0]
+        })
+    }
+})
+
+/**========== teamUpload 上传 ============*/
+router.post('/teamUpload',
+    tools.uploadImg().single('pic'),
+    async (ctx) => {
+        //多图片上传用 ctx.request.files
+        //console.log('ctx.request.files', ctx.request.files);
+        //单图片上传用
+        console.log('ctx.request.file', ctx.request.file);
+        // console.log('ctx.files', ctx.files);
+        console.log('ctx.request.body', ctx.request.body);
+        //图片
+        //console.log(ctx.request.files); 获取图片文件
+        //console.log(ctx.request.body);  //获取文本文件
+
+        let json = {
+            add_time:tools.getTime(),
+            id:ctx.request.body.id,
+            username:ctx.request.body.username,
+            job:ctx.request.body.job,
+            sort:ctx.request.body.sort,
+            status:ctx.request.body.status,
+        };
+
+        if(ctx.request.file){
+            json.pic = ctx.request.file.filename
+        }
+
+        let upLoadTeamResult = await DB.update('teamList',{"_id":DB.getObjectID(json.id)},json);
+        //console.log(upLoadImgResult.result.ok);
+        if(upLoadTeamResult.result.ok ===1){
+            /**返回成功数据*/
+            ctx.body = {'message':'上传成功',success:true};
+        }else{
+            /**返回成功数据*/
+            ctx.body = {'message':'上传失败',success:false};
+        }
+    }
+);
 
 
 
