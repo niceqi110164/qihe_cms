@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+{{include '../public/header.html'}}
+<body>
+
+<div class="app header-default side-nav-dark">
+   <div class="layout">
+
+      <!----------上边的nav ----------->
+      {{include 'admin/public/nav-top.html'}}
+
+      <!----------左边的nav ----------->
+      {{include 'admin/public/nav-left.html'}}
+
+
+
+
+      <div class="page-container">
+
+         <div class="main-content">
+            <!--   引入公共的 面包屑导航    -->
+            {{include "admin/public/breadcrumb.html"}}
+
+            <div class="container-fluid">
+
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="card">
+                        <div class="card-header">
+                           <h4 class="card-title">Team 列表</h4>
+                        </div>
+                        <div class="card-body">
+                           <p class="text-muted m-b-20 box-content">
+                              For basic styling—light padding and only horizontal dividers—use the class
+                              <code>table</code>.
+                           </p>
+                           <div class="table-responsive">
+                              <table class="table table-bordered table-striped  mb-0">
+                                 <thead>
+                                 <tr>
+                                    <th>序号</th>
+                                    <th class="text-center">姓名</th>
+                                    <th class="text-center">图片</th>
+                                    <th class="text-center">职位</th>
+                                    <th class="text-center">排序</th>
+                                    <th class="text-center">状态</th>
+                                    <th class="text-center">操作</th>
+                                 </tr>
+                                 </thead>
+                                 <tbody>
+                                 {{each list}}
+                                 <tr>
+                                    <th scope="row" >{{$index+1}}</th>
+                                    <td class="text-center">{{$value.username}}</td>
+                                    <td class="text-center">
+                                       <img src="{{__HOST__}}/upload/{{$value.pic}}" alt="pic" width="80px">
+                                    </td>
+                                    <td class="text-center">{{$value.job}}</td>
+                                    <td class="text-center">
+                                       <input type="text" class="sort_input" value="{{$value.sort || 0}}" onblur="app.changeSort(this,'nav','{{@$value._id}}')">
+                                    </td>
+                                    <td class="text-center">
+                                       {{if $value.status === "1"}}
+                                       <img src="{{__HOST__}}/admin/assets/img/yes.gif" onclick="app.toggle(this,'teamList','status','{{@$value._id}}')" alt="icon">
+                                       {{else}}
+                                       <img src="{{__HOST__}}/admin/assets/img/no.gif" onclick="app.toggle(this,'teamList','status','{{@$value._id}}')" alt="icon">
+                                       {{/if}}
+                                    </td>
+                                    <td class="text-center">
+                                       <div class="visible-md visible-lg hidden-sm hidden-xs btn-group center">
+                                          <a class="btn btn-info btn-sm"
+                                             href="{{__HOST__}}/admin/aboutUs/teamEdit?id={{@$value._id}}">
+
+                                             <i class="lni-pencil bigger-120"></i>
+
+                                          </a>
+
+                                          <button class="btn btn-sm btn-common delete" onclick="del(this,'nav','{{@$value._id}}')">
+                                             <!--href="{{__HOST__}}/admin/delete?collectionName=managers&id={{@$value._id}}"-->
+                                             <i class="fa fa-trash-o bigger-120"></i>
+                                          </button>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 {{/each}}
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- 版权信息  -->
+         {{include "admin/public/footer-copyright.html"}}
+
+      </div>
+   </div>
+</div>
+
+<div id="preloader">
+   <div class="loader" id="loader-1"></div>
+</div>
+
+
+<!----------引入公共的footer ----------->
+{{include 'admin/public/footer.html'}}
+
+<script>
+    let json = {};
+    function del(el,collectionName,id){
+        json.collectionName =collectionName;
+        json.id = id;
+    }
+
+    //console.log(json);
+    $(".delete").click(function(){
+        let _this = this
+        new Msg({
+            content:'确认要删除吗<span style="color: orange;">?</span>',
+            confirm:function(e){
+                //console.log(e);
+                console.log("confirm");
+                $.get("/admin/delete",json,function (data,status) {
+                    //console.log(data);
+                    if(data.success){
+                        tankuang(300,data.message,'/admin/nav/');
+                    }
+                })
+            },
+            cancel:function(e){
+                console.log("cancel");
+                //console.log(this);
+                return false;
+            },
+            contentStyle:{
+                fontSize:"15px",
+                // background:"lightgreen"
+            },
+            useHTML:true
+        })
+    })
+</script>
+</body>
+</html>
