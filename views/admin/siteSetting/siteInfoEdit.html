@@ -168,7 +168,7 @@
         let site_keywords = $("input[name=site_keywords]").val();
         let site_des = $("textarea[name=site_des]").val();
         let site_recordNum = $("input[name=site_recordNum]").val();
-        let site_status = $("input[name=site_status]").val();
+        let site_status = $("input[name=site_status]:checked").val();
         //Ajax请求 "/admin/changeManagerAdd"
         $.post("/admin/siteSetting/doSiteInfoEdit", {
             site_title: site_title,
