@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<!----------引入公共的header ----------->
+{{include 'admin/public/header.html'}}
+<body>
+
+
+<div class="app header-default side-nav-dark">
+    <div class="layout">
+
+        <!----------上边的nav ----------->
+        {{include 'admin/public/nav-top.html'}}
+
+        <!----------左边的nav ----------->
+        {{include 'admin/public/nav-left.html'}}
+
+
+        <div class="page-container">
+
+            <div class="main-content">
+
+                <!--   引入公共的 面包屑导航    -->
+                {{include "admin/public/breadcrumb.html"}}
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">编辑文章分类</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-body-wrap">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label" for="articleCate_title">分类名称:</label>
+                                                <div class="col-sm-10">
+                                                    <input id="articleCate_title" type="text" class="form-control"
+                                                           name="articleCate_title" value="{{list.articleCate_title }}" placeholder="请输入分类名称">
+                                                    <input type="hidden" name="id" value="{{@list._id}}">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label">上级分类:</label>
+                                                <div class="col-sm-10">
+                                                    <select name="pid" id="pid" class="articleCate_select">
+                                                        <option value="0">--顶级分类--</option>
+                                                        {{each listCate}}
+                                                        <option value="{{@$value._id}}" {{if list.pid==$value._id}} selected {{/if}} >
+                                                            {{$value.articleCate_title}}
+                                                        </option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label"
+                                                       for="articleCate_keywords">关键字:</label>
+                                                <div class="col-sm-10">
+                                                    <input id="articleCate_keywords" type="text" class="form-control"
+                                                           name="articleCate_keywords" value="{{list.articleCate_keywords}}" placeholder="请输入关键字">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label" >状态:</label>
+                                                <div class="col-sm-10 col-form-label" >
+                                                    <label for="status1" class="m-r-10">
+                                                        已审核 :
+                                                        <input class="btn-radio" id="status1" type="radio"  name="status" value="1" {{if list.status=="1"}} checked {{/if}}>
+                                                    </label>
+                                                    <label for="status2">
+                                                        未审核 :
+                                                        <input class="btn-radio" id="status2" type="radio"  name="status" value="0"  {{if list.status=="0"}} checked {{/if}}>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label" for="articleCate_description">描述 :</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="site_des"
+                                                              name="articleCate_description"
+                                                              id="articleCate_description"
+                                                              cols="30" rows="3"
+                                                              placeholder="请输入网站介绍">{{list.articleCate_description }}</textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label"></label>
+                                                <div class="col-sm-10">
+                                                    <button id="btn-common" class="btn btn-common">提交</button>
+                                                </div>
+                                            </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-12 stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="sales-info">
+                                                <h3>14,0000</h3>
+                                                <span>Overall Performance</span>
+                                            </div>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-primary" role="progressbar"
+                                                     aria-valuenow="35" style="width: 75%"></div>
+                                            </div>
+                                            <p>42% higher than last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="sales-info">
+                                                <h3>34,000</h3>
+                                                <span>Active Installations</span>
+                                            </div>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-success" role="progressbar"
+                                                     aria-valuenow="35" style="width: 55%"></div>
+                                            </div>
+                                            <p>19% less than last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="sales-info">
+                                                <h3>11,279</h3>
+                                                <span>Total downloads</span>
+                                            </div>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-purple" role="progressbar"
+                                                     aria-valuenow="35" style="width: 35%"></div>
+                                            </div>
+                                            <p>73% higher than last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- 版权信息  -->
+            {{include "admin/public/footer-copyright.html"}}
+
+        </div>
+
+    </div>
+</div>
+
+
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+
+
+<!----------引入公共的footer ----------->
+{{include 'admin/public/footer.html'}}
+
+<script>
+    $('#btn-common').click(function () {
+       let id = $("input[name=id]").val();
+       let articleCate_title = $("input[name=articleCate_title]").val();
+       let pid = $("#pid option:selected").val();
+       let articleCate_keywords = $("input[name=articleCate_keywords]").val();
+       let status = $("input[name=status]:checked").val();
+       let articleCate_description = $("textarea[name=articleCate_description]").val();
+
+        //Ajax请求 "/admin/changeManagerAdd"
+        $.post("/admin/articleCate/doArticleCateEdit",{
+            id:id,
+            articleCate_title:articleCate_title,
+            pid:pid,
+            articleCate_keywords:articleCate_keywords,
+            articleCate_description:articleCate_description,
+            status:status,
+        }, function(data,status){
+            //alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
+            if(data.success){
+                //alert(data.message);
+                //成功地址跳转 "/admin/manager"
+                tankuang(300,data.message,"/admin/articleCate/");
+            }else{
+                //失败地址回到 "/admin/manager/add"
+                tankuang(300,data.message,"/admin/articleCate/doArticleCateEdit?id="+id);
+            }
+        });
+
+    })
+</script>
+</body>
+</html>
