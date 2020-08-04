@@ -3,7 +3,7 @@
 /**弹框方法**/
 function tankuang(pWidth,content,redirectUrl) {
     $("#msg").remove();
-    let html ='<div id="msg" style="position:fixed;top:50%;width:100%;height:30px;line-height:30px;margin-top:-15px;">' +
+    let html ='<div id="msg" style="position:fixed;top:50%;width:100%;height:30px;line-height:30px;margin-top:-15px;z-index: 1000">' +
         '<p style="background:#000;' +
         'opacity:0.8;' +
         'width:'+ pWidth +'px;' +
