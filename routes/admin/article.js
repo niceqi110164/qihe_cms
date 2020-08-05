@@ -12,7 +12,9 @@ router.get('/',async (ctx)=>{
     /** 获取数据*/
     let articleResult = await DB.find('article', {},{},{
         page,
-        pageSize
+        pageSize,
+        sort:{"add_time":-1}
+
     });
     /** 获取数据总数 */
     let count = await DB.count('article',{});
@@ -55,10 +57,6 @@ router.post('/doArticleAdd', tools.uploadImg().single('img_url'), async (ctx)=>{
     console.log('ctx.request.file', ctx.request.file);
     console.log('ctx.request.body', ctx.request.body);
 
-    // ctx.body = {
-    //     filename:ctx.request.file,
-    //     body:ctx.request.body
-    // };
     let json = {
         add_time:new Date()
     };
@@ -69,6 +67,7 @@ router.post('/doArticleAdd', tools.uploadImg().single('img_url'), async (ctx)=>{
     json.keywords = ctx.request.body.keywords;
     json.description = ctx.request.body.description;
     json.author = ctx.request.body.author;
+    json.sort = ctx.request.body.sort;
     json.content = ctx.request.body.content;
     json.status = ctx.request.body.status;
 
@@ -119,8 +118,8 @@ router.get('/articleEdit',async (ctx)=>{
 /**========== doArticleEdit 操作 ============*/
 router.post('/doArticleEdit' ,tools.uploadImg().single('img_url'),async (ctx)=>{
     //单图片上传用
-    console.log('ctx.request.file', ctx.request.file);
-    console.log('ctx.request.body', ctx.request.body);
+    //console.log('ctx.request.file', ctx.request.file);
+    //console.log('ctx.request.body', ctx.request.body);
     let id = ctx.request.body.id;
     let json = {
         add_time:new Date()
@@ -133,6 +132,7 @@ router.post('/doArticleEdit' ,tools.uploadImg().single('img_url'),async (ctx)=>{
     json.keywords = ctx.request.body.keywords;
     json.description = ctx.request.body.description;
     json.author = ctx.request.body.author;
+    json.sort = ctx.request.body.sort;
     json.content = ctx.request.body.content;
     json.status = ctx.request.body.status;
 
