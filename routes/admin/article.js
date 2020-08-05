@@ -54,8 +54,8 @@ router.get('/articleAdd',async (ctx)=>{
 router.post('/doArticleAdd', tools.uploadImg().single('img_url'), async (ctx)=>{
     /**1.获取表单数据*/
     //单图片上传用
-    console.log('ctx.request.file', ctx.request.file);
-    console.log('ctx.request.body', ctx.request.body);
+    //console.log('ctx.request.file', ctx.request.file);
+    //console.log('ctx.request.body', ctx.request.body);
 
     let json = {
         add_time:new Date()

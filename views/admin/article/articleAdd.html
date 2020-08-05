@@ -229,11 +229,11 @@
 
         let formData = new FormData();
 
-        let catename = $("#pid option:selected").text();
+        let catename = $("#pid option:selected").text().trim();
         if(catename === "--选择分类--"){
             catename = "{{list[0].articleCate_title}}";
         }else{
-            catename = $("#pid option:selected").text();
+            catename = $("#pid option:selected").text().trim();
         }
 
         let title = $("input[name=title]").val();
