@@ -1118,15 +1118,15 @@ Home Slider
 }
 
 .slider-bg1 {
-  background-image: url(../img/home-1/slider1.jpg);
+  background-image: url(../img/home-1/slider_1.jpg);
 }
 
 .slider-bg2 {
-  background-image: url(../img/home-1/slider2.jpg);
+  background-image: url(../img/home-1/slider_2.jpg);
 }
 
 .slider-bg3 {
-  background-image: url(../img/home-1/slider3.jpg);
+  background-image: url(../img/home-1/slider_3.jpg);
 }
 
 /*=================================
@@ -1662,12 +1662,14 @@ Gallery Section End
 Trainers Section
 ====================================*/
 .trainer-card {
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
   position: relative;
   z-index: 1;
 }
 
+
 .trainer-card:hover .trainer-content {
+  margin-bottom:0px;
   padding-top: 17px;
   padding-bottom: 40px;
 }
@@ -1699,6 +1701,7 @@ Trainers Section
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   -webkit-transition: 0.7s;
   transition: 0.7s;
+  margin-bottom:23px;
 }
 
 .trainer-card .trainer-content.active {
@@ -1718,6 +1721,7 @@ Trainers Section
   display: block;
   font-size: 20px;
   color: #373737;
+  letter-spacing: 10px;
 }
 
 .trainer-card .trainer-content span {
@@ -2553,14 +2557,15 @@ Inner Banner
 .inner-banner .inner-title {
   /*padding-top: 150px;*/
   /*padding-bottom: 150px;*/
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-top: 90px;
+  padding-bottom: 90px;
   position: relative;
 }
 
 .inner-banner .inner-title h3 {
   font-size: 45px;
   color: #ff6464;
+  text-transform: Capitalize ;
 }
 
 .inner-banner .inner-title ul {
@@ -2673,6 +2678,7 @@ Inner Banner End
 .common-dtel-text p {
   max-width: 760px;
   font-size: 15px;
+  line-height: 40px;
 }
 
 .common-offer {
@@ -2969,6 +2975,7 @@ Widget Categories
 
 .widget-categories h2 {
   font-size: 24px;
+  margin:15px 0;
 }
 
 .widget-categories ul {

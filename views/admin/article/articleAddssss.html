@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<!----------引入公共的header ----------->
+{{include 'admin/public/header.html'}}
+
+<!-- Ueditor 配置静态资源-->
+<!--<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>-->
+<!--<script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>-->
+
+<body>
+
+
+<div class="app header-default side-nav-dark">
+    <div class="layout">
+
+        <!----------上边的nav ----------->
+        {{include 'admin/public/nav-top.html'}}
+
+        <!----------左边的nav ----------->
+        {{include 'admin/public/nav-left.html'}}
+
+
+        <div class="page-container">
+
+            <div class="main-content">
+
+                <!--   引入公共的 面包屑导航    -->
+                {{include "admin/public/breadcrumb.html"}}
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">添加文章内容</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-body-wrap">
+                                        <form enctype="multipart/form-data">
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label" for="article_title">文章名称:</label>
+                                                <div class="col-sm-10">
+                                                    <input id="article_title" type="text" class="form-control"
+                                                           name="article_title" placeholder="请输入分类名称">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label" for="article_img">图片:</label>
+
+                                                <div class="col-sm-10">
+                                                    <div class="form-control">
+                                                        <input id="article_img" type="file" class="form-control" name="article_img" >
+
+                                                        <!-- logo图片显示  -->
+                                                        <div class="col-sm-10">
+                                                            <img src="" alt="article_img" width="80px" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label"
+                                                       for="article_keywords">关键字:</label>
+                                                <div class="col-sm-10">
+                                                    <input id="article_keywords" type="text" class="form-control"
+                                                           name="article_keywords" placeholder="请输入关键字">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label" >状态:</label>
+                                                <div class="col-sm-10 col-form-label" >
+                                                    <label for="status1" class="m-r-10">
+                                                        已审核 :
+                                                        <input class="btn-radio" id="status1" type="radio"  name="status" value="1" checked>
+                                                    </label>
+                                                    <label for="status2">
+                                                        未审核 :
+                                                        <input class="btn-radio" id="status2" type="radio"  name="status" value="0" >
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label" for="article_description">描述 :</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="site_des"
+                                                              name="article_description"
+                                                              id="article_description"
+                                                              cols="30" rows="3"
+                                                              placeholder="请输入网站介绍"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label">文章详情 :</label>
+                                                <div class="col-sm-10">
+<!--                                                    <script id="editor" type="text/plain" style="width:100%;height:250px;"></script>-->
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label control-label"></label>
+                                                <div class="col-sm-10">
+                                                    <button id="btn-common" class="btn btn-common">提交</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-12 stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="sales-info">
+                                                <h3>14,0000</h3>
+                                                <span>Overall Performance</span>
+                                            </div>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-primary" role="progressbar"
+                                                     aria-valuenow="35" style="width: 75%"></div>
+                                            </div>
+                                            <p>42% higher than last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="sales-info">
+                                                <h3>34,000</h3>
+                                                <span>Active Installations</span>
+                                            </div>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-success" role="progressbar"
+                                                     aria-valuenow="35" style="width: 55%"></div>
+                                            </div>
+                                            <p>19% less than last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="sales-info">
+                                                <h3>11,279</h3>
+                                                <span>Total downloads</span>
+                                            </div>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-purple" role="progressbar"
+                                                     aria-valuenow="35" style="width: 35%"></div>
+                                            </div>
+                                            <p>73% higher than last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- 版权信息  -->
+            {{include "admin/public/footer-copyright.html"}}
+
+        </div>
+
+    </div>
+</div>
+
+
+<div id="preloader">
+    <div class="loader" id="loader-1"></div>
+</div>
+
+
+<!----------引入公共的footer ----------->
+{{include 'admin/public/footer.html'}}
+
+<!--ueditor-->
+<script>
+   // let ue = UE.getEditor('editor');
+    //UE.getEditor('editor').getContent()
+
+</script>
+
+
+<script>
+    $('#btn-common').click(function () {
+
+        e.preventDefault();
+        let formData = new FormData();
+
+        let article_title = $("input[name=article_title]").val();
+        let article_img = $("input[name=article_img]")[0].files[0];
+        let article_keywords = $("input[name=article_keywords]").val();
+        let status = $("input[name=status]:checked").val();
+        let article_description = $("textarea[name=article_description]").val();
+        let content = ue.getContent();
+
+        // formData.append("article_title", article_title);
+        // formData.append("article_img", article_img);
+        // formData.append("article_keywords", article_keywords);
+        // formData.append("status", status);
+        // formData.append("article_description", article_description);
+        // formData.append("content", content);
+
+
+        //alert(JSON.stringify(id));
+
+        $.ajax({
+            type : "POST",
+            url : "/admin/article/doArticleAdd",
+            data : formData,
+            cache : false,
+            processData : false,
+            contentType : false,
+            success : function(data) {
+                //alert(JSON.parse(data));
+                //alert(data)
+                //     //成功地址跳转 "/admin/manager"
+                tankuang(300, data.message, "/admin/article/");
+            },
+            error:function(data){
+                console.log(data);
+                //失败地址回到 "/admin/manager/add"
+                tankuang(300, data.message, "/admin/articleCate/articleAdd/");
+            }
+        });
+    })
+</script>
+
+
+
+</body>
+</html>

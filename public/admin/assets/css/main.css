@@ -365,6 +365,19 @@ hr {
     margin-bottom: 30px
 }
 
+.btn-radio{
+    position: relative;
+    top:2px;
+    left:3px;
+}
+
+
+.sort_input{
+    width: 35px;
+    text-align: center;
+    border:1px solid #e9eaec;
+}
+
 #preloader {
     position: fixed;
     top: 0;
@@ -1368,6 +1381,12 @@ hr {
     padding: 20px;
     position: relative
 }
+
+/*set min-height*/
+.card-body .card-body-wrap{
+    min-height: 370px;
+}
+/*set min-height end*/
 
 .card-toolbar {
     float: right
@@ -2693,6 +2712,15 @@ button:focus {
     border-color: #e22a6f !important
 }
 
+
+/*回复初始值*/
+.site_default-show{
+    border-radius: 0;
+    border:1px solid transparent;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
 .search-box {
     margin-right: 20px;
     position: relative
@@ -2801,6 +2829,77 @@ button:focus {
 .content-footer .footer .go-right {
     float: right
 }
+
+/*textarea*/
+.site_des{
+    outline: none;
+    width:100%;/*自动适应父布局宽度*/
+    overflow:auto;
+    word-break:break-all;
+    /*在ie中解决断行问题(防止自动变为在一行显示，主要解决ie兼容问题，ie8中当设宽度为100%时，文本域类容超过一行时，
+当我们双击文本内容就会自动变为一行显示，所以只能用ie的专有断行属性“word-break或word-wrap”控制其断行)*/
+    border:1px solid #e5e5e5;
+    border-radius: 4px;
+    padding:10px;
+    color:#8a8a8a;
+}
+.site_des:focus{
+    border-color: #e22a6f !important;
+}
+/*textarea end*/
+
+
+
+.articleCate_select{
+    outline: none;
+    padding:10px;
+    border:1px solid #e5e5e5;
+    border-radius: 4px;
+    color:#8a8a8a;
+    
+}
+.articleCate_select option{
+    padding:10px;
+}
+.articleCate_select:focus{
+    border-color: #e22a6f !important;
+}
+
+
+.pagination{
+    margin:20px 0;
+}
+
+.pagination > li > a {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    /*color: #337ab7;*/
+    color: #717171;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.pagination > .active > a{
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    /*background-color: #337ab7;*/
+    background-color: #e22a6f;
+    /*border-color: #337ab7;*/
+    border-color: #e22a6f;
+}
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 767px) {
     .content-footer .footer {

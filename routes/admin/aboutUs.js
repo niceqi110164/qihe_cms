@@ -134,6 +134,54 @@ router.post('/teamUpload',
     }
 );
 
+/**========== teamUpload 上传 ============*/
+router.get('/teamAdd',async (ctx)=>{
+    await ctx.render('admin/aboutUs/teamAdd')
+})
+
+
+/**========== doTeamAdd 上传 ============*/
+router.post('/doTeamAdd', tools.uploadImg().single('pic'), async (ctx)=>{
+    //单图片上传用
+    //console.log('ctx.request.file', ctx.request.file);
+    // console.log('ctx.files', ctx.files);
+    //console.log('ctx.request.body', ctx.request.body);
+
+    let json = {
+        add_time:tools.getTime(),
+        username:ctx.request.body.username,
+        job:ctx.request.body.job,
+        sort:ctx.request.body.sort,
+        status:ctx.request.body.status,
+    }
+
+    if(ctx.request.file){
+        json.pic = ctx.request.file.filename
+    }
+
+
+    /**2.验证表单数据是否合法*/
+    if(!/[a-zA-Z0-9\u4e00-\u9fa5_]{2,20}/.test(json.username)){//[a-zA-Z\u4e00-\u9fa5]{4,20}
+        /**返回失败数据*/
+        ctx.body = {'message':'姓名不合法',success:false};
+    }else{
+        /**3.在数据库查询当前要增加的nav是否存在*/
+        let teamListResult = await DB.find("teamList",{"username":json.username});
+        if(teamListResult.length>0){
+            /**返回失败数据*/
+            ctx.body = {'message':'用户已存在',success:false};
+        }else{
+            /**4.增加nav*/
+            let teamListInsertResult = await DB.insert('teamList',json);
+            //console.log(insertResult);
+            if(teamListInsertResult.result.ok === 1){
+                /**返回成功数据*/
+                ctx.body = {'message':'添加成功',success:true};
+            }
+        }
+    }
+
+})
 
 
 /**========== doEdit操作 ============*/

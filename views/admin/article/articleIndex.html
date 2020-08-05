@@ -31,7 +31,7 @@
                         </div>
                         <div class="card-body">
                            <p class="text-muted m-b-20 box-content">
-                              文章分类分为 : 顶级分类<code>(red)</code>和二级分类<code>(black)</code>.
+                              显示所有的文章<code>article</code>.
                            </p>
                            <div class="table-responsive">
                               <table class="table table-bordered table-striped  mb-0">
@@ -50,9 +50,9 @@
                                  <tr>
                                     <th class="text-center">{{$value.title}} </th>
                                     <th class="text-center" >{{$value.catename}} </th>
-                                    <td class="text-center">{{$value.last_time | dateFormat}}</td>
+                                    <td class="text-center">{{$value.add_time | dateFormat}}</td>
                                     <th scope="row" class="text-center">
-                                       <input type="text" class="sort_input" value="{{$value.sort || 0}}" onblur="app.changeSort(this,'article','{{@$value._id}}')">
+                                       <input type="text" class="sort_input" value="{{$value.sort || 0}}" onblur="app.changeSort(this,'article','{{@$value._id}}','/admin/article/')">
                                     </th>
                                     <td class="text-center">
                                        {{if $value.status === "1"}}

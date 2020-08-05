@@ -508,168 +508,43 @@
         <!-- Gallery Area End -->
 
         <!-- Trainers Area -->
-        <section class="trainers-area pb-70">
+        <section class="trainers-area pb-70" style="background: #fffafa">
             <div class="container">
                 <div class="scetion-title text-center mb-50">
-                    <span>Our Trainers</span>
-                    <h2>Our Professional Trainers</h2>
+                    <span>Our Team</span>
+                    <h2>Our Professional Team</h2>
                     <p>
                         The introduced now, the they expect, animals the desk, and catch temple. 
                         More seven my couldn't it the character using recommended.
                     </p>
                 </div>
                 <div class="row">
+                    {{each teamList}}
                     <div class="col-lg-3 col-sm-6">
                         <div class="trainer-card">
                             <a href="instructor.html">
-                                <img src="{{__HOST__}}/default/assets/img/trainers/1.jpg" alt="Trainers Images">
+                                <img src="{{__HOST__}}/upload/{{$value.pic}}" alt="Trainers Images">
                             </a>
                             <div class="trainer-content">
                                 <a href="instructor.html">
-                                    <h3>John Doe</h3>
+                                    <h3>{{$value.username}}</h3>
                                 </a>
-                                <span>Professional Diver</span>
+                                <span>{{$value.job}}</span>
                                 <div class="social-icon">
                                     <ul>
+                                        {{each $value.inforList item i}}
                                         <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-linkedin-in"></i>
+                                            <a href="{{__HOST__}}/{{item}}" target="_blank">
+                                                <i class="fab fa-{{i}}"></i>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fas fa-envelope"></i>
-                                            </a>
-                                        </li>
+                                        {{/each}}
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="trainer-card">
-                            <a href="instructor.html">
-                                <img src="{{__HOST__}}/default/assets/img/trainers/2.jpg" alt="Trainers Images">
-                            </a>
-                            <div class="trainer-content">
-                                <a href="instructor.html">
-                                    <h3>Evana Doe</h3>
-                                </a>
-                                <span>Professional Trainer</span>
-                                <div class="social-icon">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-linkedin-in"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fas fa-envelope"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="trainer-card">
-                            <a href="instructor.html">
-                                <img src="{{__HOST__}}/default/assets/img/trainers/3.jpg" alt="Trainers Images">
-                            </a>
-                            <div class="trainer-content active">
-                                <a href="instructor.html">
-                                    <h3>Smith Doe</h3>
-                                </a>
-                                <span>Professional Swimmer</span>
-                                <div class="social-icon active">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-linkedin-in"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fas fa-envelope"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="trainer-card">
-                            <a href="instructor.html">
-                                <img src="{{__HOST__}}/default/assets/img/trainers/4.jpg" alt="Trainers Images">
-                            </a>
-                            <div class="trainer-content">
-                                <a href="instructor.html">
-                                    <h3>Marida Doe</h3>
-                                </a>
-                                <span>Professional Instructor</span>
-                                <div class="social-icon">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-linkedin-in"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <i class="fas fa-envelope"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
         </section>

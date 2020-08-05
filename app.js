@@ -1,28 +1,33 @@
 /**Created by xiaoqi on 2020/2/23*/
 /**========== 引入koa ===================================*/
-const Koa = require('koa'),
+   const Koa = require('koa'),
 /**========== 引入koa-router (路由) ======================*/
       router = require('koa-router')(),
 /**========== 引入模板引擎 ===============================*/
-      views = require('koa-views'),
+       views = require('koa-views'),
 /**========== 引入bodyparser =============================*/
-      bodyParser = require('koa-bodyparser'),
+  bodyParser = require('koa-bodyparser'),
 /**========== 引入koa-static =============================*/
       static = require('koa-static'),
 /**========== 引入koa-art-template =======================*/
       render = require('koa-art-template'),
 /**========== 引入koa-session ============================*/
-      session = require('koa-session'),
+     session = require('koa-session'),
 /**========== 引入db操作数据库 ============================*/
-      db = require('./model/db'),
+          db = require('./model/db'),
 /**========== 引入path ===================================*/
-      path = require('path'),
+        path = require('path'),
 /**========== 引入koa-jsonp ==============================*/
-      jsonp = require('koa-jsonp'),
+       jsonp = require('koa-jsonp'),
 /**========== 引入 子模块 =================================*/
-      admin = require('./routes/admin'),
-      api = require('./routes/api');
-      index = require('./routes/index');
+       admin = require('./routes/admin'),
+/**========== art-template 自定义日期管道 =================*/
+          sd = require('silly-datetime'),
+    /**========== a后台跨域模块 =================*/
+        //cors = require('koa2-cors'),
+        //json = require('koa-json'),
+         api = require('./routes/api'),
+       index = require('./routes/index');
 
 
 
@@ -38,9 +43,13 @@ const app = new Koa();
         }
     }));
  */
+/**========== 配置后台跨域模块中间件 ========================*/
+//app.use(cors());
 
 /**========== 配置bodyParser中间件 ========================*/
 app.use(jsonp());
+
+//app.use(json());
 
 /**========== 配置模板引擎 第二种方式 模板的后缀名为 .ejs=====*/
 app.use(views('views', { extension: 'ejs' }));
@@ -57,7 +66,10 @@ app.use(static('public'));
 render(app, {
     root: path.join(__dirname, 'views'),
     extname: '.html',
-    debug: process.env.NODE_ENV !== 'production'
+    debug: process.env.NODE_ENV !== 'production',
+    dateFormat:dateFormat=function(value){
+        return sd.format(value, 'YYYY-MM-DD HH:mm');
+    } /*扩展模板里面的方法*/
 });
 
 /**========== 配置koa-session中间件 =======================*/
@@ -198,6 +210,6 @@ app.use(router.allowedMethods());
 
 
 /**========== 监听端口 ====================================*/
-app.listen(3007,()=>{
-    console.log("http://127.0.0.1:3007");
+app.listen(3005,()=>{
+    console.log("http://127.0.0.1:3005");
 });

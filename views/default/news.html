@@ -12,64 +12,8 @@
         <!-- End Preloader -->
 
         <!-- Start Heder Area -->
-        <header class="header-area top-header">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-8">
-                        <div class="header-left">
-                            <ul>
-                                <li>
-                                    <i class="fas fa-clock"></i>
-                                    SAT - THU (10:00 AM - 6:00PM)
-                                </li>
-                                <li>
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    28/A Street, New York, USA
-                                </li>
-                                <li>
-                                    <a href="tel:+1123456789">
-                                        <i class="fas fa-phone-alt"></i>
-                                        +1 123 456 789
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="social-icon">
-                            <ul>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-youtube"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>  
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-google-plus-g"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <!----------引入公共的 header-top  ----------->
+        {{include "default/public/header-top.html"}}
         <!-- End Heder Area -->
 
         <!----------引入公共的头部导航 nav-top  ----------->
@@ -89,10 +33,11 @@
                     <h2>Our Regular Latest News & Updates</h2>
                 </div>
                 <div class="row">
+                    {{each list}}
                     <div class="col-lg-4 col-md-6">
                         <div class="news-card">
                             <div class="news-img">
-                                <a href="news-details.html">
+                                <a href="{{__HOST__}}/news-details/{{@$value._id}}">
                                     <img src="{{__HOST__}}/default/assets/img/news/1.jpg" alt="News Images">
                                 </a>
                                 <div class="sub-text">
@@ -103,187 +48,26 @@
                             </div>
                             <ul>
                                 <li>
-                                    <a href="#">John Doe</a> 
+                                    <a href="#">John Doe{{$value.author}}</a>
                                 </li>
-                                <li>26 APR 2019</li>
+                                <li>{{$value.news_updateTime}}</li>
                             </ul>
                             <div class="news-content">
                                 <a href="news-details.html">
-                                    <h3>New Scuba Diving Course Sheet Will Update Soon</h3>
+                                    <h3>{{$value.news_title}}</h3>
                                 </a>
                                 <p>
-                                    Less entirely counter. Parent, curiously,must would frequency,
-                                    would very of wellfeigned legs,doctor back in the business.
+                                    {{$value.news_desc}}
                                 </p>
-                                <a href="news-details.html" class="news-icon">
+                                <a href="{{__HOST__}}/news-details/{{@$value._id}}" class="news-icon">
+                                    <i class="fas fa-arrow-circle-right"></i>
                                     Read More
                                 </a>
                             </div>
                         </div>
                     </div>
+                    {{/each}}
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="news-card">
-                            <div class="news-img">
-                                <a href="news-details.html">
-                                    <img src="{{__HOST__}}/default/assets/img/news/2.jpg" alt="News Images">
-                                </a>
-                                <div class="sub-text">
-                                    <a href="#">
-                                        SWIMMING EVENT
-                                    </a> 
-                                </div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        John Doe
-                                    </a>
-                                </li>
-                                <li>27 APR 2019</li>
-                            </ul>
-                            <div class="news-content">
-                                <a href="news-details.html">
-                                    <h3>A Diving Event Will Happen at Dobby Center</h3>
-                                </a>
-                                <p>
-                                    Less entirely counter. Parent, curiously,must would frequency,
-                                    would very of wellfeigned legs,doctor back in the business.
-                                </p>
-                                <a href="news-details.html" class="news-icon">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="news-card">
-                            <div class="news-img">
-                                <a href="news-details.html">
-                                    <img src="{{__HOST__}}/default/assets/img/news/3.jpg" alt="News Images">
-                                </a>
-                                <div class="sub-text">
-                                    <a href="#">
-                                        EQUIPMENT
-                                    </a>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        John Doe
-                                    </a>
-                                </li>
-                                <li>28 APR 2019</li>
-                            </ul>
-                            <div class="news-content">
-                                <a href="news-details.html">
-                                    <h3>A Swimming Event Will Happen at Dobby Center</h3>
-                                </a>
-                                <p>
-                                    Less entirely counter. Parent, curiously,must would frequency,
-                                    would very of wellfeigned legs, doctor back in the business.
-                                </p>
-                                <a href="news-details.html" class="news-icon">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="news-card">
-                            <div class="news-img">
-                                <a href="news-details.html">
-                                    <img src="{{__HOST__}}/default/assets/img/news/4.jpg" alt="News Images">
-                                </a>
-                                <div class="sub-text">
-                                    <a href="#">SCUBA DIVING</a>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a href="#">John Doe</a>
-                                </li>
-                                <li>29 APR 2019</li>
-                            </ul>
-                            <div class="news-content">
-                                <a href="news-details.html">
-                                    <h3>Scuba Diving Events Photographs Will Get on Google Drive</h3>
-                                </a>
-                                <p>
-                                    Less entirely counter. Parent, curiously,must would frequency,
-                                    would very of wellfeigned legs,doctor back in the business.
-                                </p>
-                                <a href="news-details.html" class="news-icon">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="news-card">
-                            <div class="news-img">
-                                <a href="news-details.html">
-                                    <img src="{{__HOST__}}/default/assets/img/news/5.jpg" alt="News Images">
-                                </a>
-                                <div class="sub-text"> 
-                                    <a href="#">SWIMMING EVENT</a> 
-                                </div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a href="#">John Doe</a> 
-                                </li>
-                                <li>30 APR 2019</li>
-                            </ul>
-                            <div class="news-content">
-                                <a href="news-details.html">
-                                    <h3>A Swimming Event Photographs Will Get on Google Drive</h3>
-                                </a>
-                                <p>
-                                    Less entirely counter. Parent, curiously,must would frequency,
-                                    would very of wellfeigned legs,doctor back in the business.
-                                </p>
-                                <a href="news-details.html" class="news-icon">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="news-card">
-                            <div class="news-img">
-                                <a href="news-details.html">
-                                    <img src="{{__HOST__}}/default/assets/img/news/6.jpg" alt="News Images">
-                                </a>
-                                <div class="sub-text">
-                                    <a href="#">EQUIPMENT</a> 
-                                </div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a href="#">John Doe</a> 
-                                </li>
-                                <li>01 MAY 2019</li>
-                            </ul>
-                            <div class="news-content">
-                                <a href="news-details.html">
-                                    <h3>Equipments Arrived. Equipments Will Find on Our Store</h3>
-                                </a>
-                                <p>
-                                    Less entirely counter. Parent, curiously,must would frequency,
-                                    would very of wellfeigned legs, doctor back in the business.
-                                </p>
-                                <a href="news-details.html" class="news-icon">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="col-lg-12 col-md-12">
                         <div class="pagination-area">
@@ -298,6 +82,7 @@
                             </a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

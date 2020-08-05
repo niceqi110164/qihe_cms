@@ -27,7 +27,7 @@ let app = {
             }
         );
     },
-    changeSort(el,collectionName,id){
+    changeSort(el,collectionName,id,redirectUrl){
         let sortValue = el.value;
         $.get("/admin/changeSort",
             {
@@ -37,9 +37,9 @@ let app = {
             },
             function (data,status) {
                 if(data.success){
-                    tankuang(300,data.message,'/admin/nav/');
+                    tankuang(300,data.message,redirectUrl);
                 }else{
-                    tankuang(300,data.message,'/admin/nav/');
+                    tankuang(300,data.message,redirectUrl);
                 }
             }
         )

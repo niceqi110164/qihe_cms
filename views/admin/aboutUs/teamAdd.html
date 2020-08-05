@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<!----------引入公共的header ----------->
+{{include 'admin/public/header.html'}}
+<body>
+
+<div class="app header-default side-nav-dark">
+   <div class="layout">
+
+      <!----------上边的nav ----------->
+      {{include 'admin/public/nav-top.html'}}
+
+      <!----------左边的nav ----------->
+      {{include 'admin/public/nav-left.html'}}
+
+      <div class="page-container">
+         <div class="main-content">
+
+            <!--   引入公共的 面包屑导航    -->
+            {{include "admin/public/breadcrumb.html"}}
+
+            <div class="container-fluid">
+
+               <div class="row">
+                  <div class="col-md-8">
+                     <div class="card">
+                        <div class="card-header">
+                           <h5 class="card-title">TeamAdd</h5>
+                        </div>
+                        <div class="card-body">
+                           <div class="card-body-wrap">
+                              <form  enctype="multipart/form-data" >
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="username">姓名 :</label>
+                                    <div class="col-sm-10">
+                                       <input id="username" type="text" class="form-control" name="username" placeholder="请输入姓名">
+
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="pic">图片 :</label>
+                                    <div class="col-sm-10">
+                                       <div class="form-control">
+                                          <input id="pic" type="file" class="form-control"  name="pic">
+                                          <!-- logo图片显示  -->
+<!--                                          <div class="col-sm-10">-->
+<!--                                             <img src="{{__HOST__}}/upload/" alt="pic" width="80px" >-->
+<!--                                          </div>-->
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label" for="job">职位 :</label>
+                                    <div class="col-sm-10">
+                                       <input id="job" type="text" class="form-control" name="job" placeholder="请输入职位">
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label for="sort" class="col-sm-2 col-form-label control-label">排序:</label>
+                                    <div class="col-sm-10">
+                                       <input id="sort" type="number" class="form-control" name="sort" min="1" max="10">
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label">状态:</label>
+                                    <div class="col-sm-10 col-form-label" >
+                                       <label for="status1" class="m-r-10">
+                                          已审核 :
+                                          <input class="btn-radio" id="status1" type="radio"  name="status" value="1" checked>
+                                       </label>
+                                       <label for="status2">
+                                          未审核 :
+                                          <input class="btn-radio" id="status2" type="radio"  name="status" value="0" >
+                                       </label>
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label control-label"></label>
+                                    <div class="col-sm-10">
+                                       <button id="btn-common" class="btn btn-common">提交</button>
+                                    </div>
+                                 </div>
+                              </form>
+
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="row">
+                        <div class="col-12 stretch-card">
+                           <div class="card">
+                              <div class="card-body">
+                                 <div class="sales-info">
+                                    <h3>14,0000</h3>
+                                    <span>Overall Performance</span>
+                                 </div>
+                                 <div class="progress progress-sm">
+                                    <div class="progress-bar bg-primary" role="progressbar"
+                                         aria-valuenow="35" style="width: 75%"></div>
+                                 </div>
+                                 <p>42% higher than last month</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 stretch-card">
+                           <div class="card">
+                              <div class="card-body">
+                                 <div class="sales-info">
+                                    <h3>34,000</h3>
+                                    <span>Active Installations</span>
+                                 </div>
+                                 <div class="progress progress-sm">
+                                    <div class="progress-bar bg-success" role="progressbar"
+                                         aria-valuenow="35" style="width: 55%"></div>
+                                 </div>
+                                 <p>19% less than last month</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 stretch-card">
+                           <div class="card">
+                              <div class="card-body">
+                                 <div class="sales-info">
+                                    <h3>11,279</h3>
+                                    <span>Total downloads</span>
+                                 </div>
+                                 <div class="progress progress-sm">
+                                    <div class="progress-bar bg-purple" role="progressbar"
+                                         aria-valuenow="35" style="width: 35%"></div>
+                                 </div>
+                                 <p>73% higher than last month</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+
+         <!-- 版权信息  -->
+         {{include "admin/public/footer-copyright.html"}}
+
+      </div>
+
+   </div>
+</div>
+
+
+<!--<div id="preloader">-->
+<!--   <div class="loader" id="loader-1"></div>-->
+<!--</div>-->
+
+
+<!----------引入公共的footer ----------->
+{{include 'admin/public/footer.html'}}
+
+<script>
+    $('#btn-common').click(function (e) {
+        e.preventDefault();
+
+        let formData = new FormData();
+        let username = $("input[name=username]").val();
+        let job = $("input[name=job]").val();
+        let sort = $("input[name=sort]").val();
+        let status = $("input[type=radio]:checked").val();
+        let pic = $("input[name=pic]")[0].files[0];
+        //alert('id='+id+"; username="+username+"; job="+job+"; sort="+sort+"; status="+status+"; pic="+pic)
+
+        formData.append("pic", pic);
+        formData.append("username", username);
+        formData.append("job", job);
+        formData.append("sort", sort);
+        formData.append("status", status);
+
+        //alert(JSON.stringify(id));
+
+        $.ajax({
+            type : "POST",
+            url : "/admin/aboutUs/doTeamAdd",
+            data : formData,
+            cache : false,
+            processData : false,
+            contentType : false,
+            success : function(data) {
+                 //alert(JSON.stringify(data));
+                 //alert(data)
+                 //     //成功地址跳转 "/admin/manager"
+                if(data.success){
+                    tankuang(300, data.message, "{{__HOST__}}/admin/aboutUs/team");
+                }else{
+                    tankuang(300, data.message, "/admin/aboutUs/teamAdd");
+                }
+
+            },
+            error:function(data){
+                console.log(data);
+                //失败地址回到 "/admin/manager/add"
+                tankuang(300, data.message, "/admin/aboutUs/teamAdd");
+            }
+        });
+
+//http://127.0.0.1:3005/admin/siteSetting/LogoEdit?id=5f06808e23aa235918b5df57
+//http://127.0.0.1:3005/admin/siteSetting/LogoEdit?header_logo=footerLogo.png&id=5f06808e23aa235918b5df57&footer_logo=footerLogo.png
+
+
+        //Ajax请求 "/admin/changeManagerAdd"
+        // $.post("/admin/siteSetting/LogoUpload",
+        //     formData,
+        //     function (data, status) {
+        //         alert("Data Loaded: " + JSON.stringify(data) );//Data Loaded: {"message":"用户已存在","success":false}
+        //         if (data.success) {
+        //             //alert(data.message);
+        //             //成功地址跳转 "/admin/manager"
+        //             tankuang(300, data.message, "/admin/siteSetting/Logo/");
+        //         } else {
+        //            //失败地址回到 "/admin/manager/add"
+        //             tankuang(300, data.message, "/admin/siteSetting/LogoEdit?id="+id);
+        //         }
+        //     }
+        // );
+
+
+    })
+</script>
+</body>
+</html>

@@ -43,15 +43,55 @@ class Db {
         });
     }
     //
-    find(collectionName,json){
+    find(collectionName,json,json1,json2){
         /**
          * find()方法里想要使用 connect()方法里的数据
          * 想要获取数据就i要使用异步回调
          * 在这里使用 Promise()
          * */
+
+        /**
+           find方法传入参数不同获取的数据不同
+           DB.find('user',{})                     返回所有数据
+           DB.find('user',{},{"title":1})         返回 指定列 title 所有数据
+           DB.find('user',{} ,{"title":1},{
+                 page:2,       显示第几页
+                 pageSize:5,   每页显示几条数据
+           })
+         * */
+        let attr = '';
+        let pageSize = 0;
+        let slipNum = 0;
+        let jsonSort = '';
+        //查询数据库的时候判断传入的参数个数对应的处理不同的逻辑
+        if(arguments.length === 2){ //传递的参数为2个时
+            attr = {};
+            pageSize = 0;
+            slipNum = 0;
+        }else if(arguments.length === 3){//传递的参数为3个时
+            attr = json1;
+            pageSize = 0;
+            slipNum = 0;
+        }else if(arguments.length === 4){//传递的参数为4个时
+            attr = json1;
+            let page = json2.page || 1;
+            pageSize = json2.pageSize || 10;
+            slipNum = (page-1)*pageSize;
+            //排序操作
+            if(json2.sort){
+                jsonSort = json2.sort;
+            }else{
+                jsonSort = {};
+            }
+        }else{
+            console.log("参数不对");
+        }
+
         return new Promise((resolve,reject)=>{
             this.connect().then((db)=>{
-                let result = db.collection(collectionName).find(json);
+                //let result = db.collection(collectionName).find(json);
+                //排序用sort()方法
+                let result = db.collection(collectionName).find(json,{fields:attr}).skip(slipNum).limit(pageSize).sort(jsonSort);
                 result.toArray((err,docs)=>{
                     if(err){
                         reject(err);
@@ -104,6 +144,20 @@ class Db {
     getObjectID(id){ /**mongodb里面查询 _id 把字符串转换成对象*/
         return new ObjectID(id)
     }
+    //获取总数量
+    count(collectionName,json){
+        return new Promise((resolve,reject)=>{
+            this.connect().then((db)=>{
+                db.collection(collectionName).countDocuments(json,(err,result)=>{
+                    if(err){
+                        reject(err)
+                    }
+                    resolve(result)
+                })
+            })
+        })
+    }
+
 }
 
 
