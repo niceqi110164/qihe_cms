@@ -38,26 +38,26 @@
                         <div class="news-card">
                             <div class="news-img">
                                 <a href="{{__HOST__}}/news-details/{{@$value._id}}">
-                                    <img src="{{__HOST__}}/default/assets/img/news/1.jpg" alt="News Images">
+                                    <img src="{{__HOST__}}/upload/{{$value.img_url}}"  alt="News Images">
                                 </a>
                                 <div class="sub-text">
-                                    <a href="#">
-                                        SCUBA DIVING
+                                    <a href="{{__HOST__}}/news-details/{{@$value._id}}">
+                                        {{$value.keywords}}
                                     </a>
                                 </div>
                             </div>
                             <ul>
                                 <li>
-                                    <a href="#">John Doe{{$value.author}}</a>
+                                    <a href="#">{{$value.author }}</a>
                                 </li>
-                                <li>{{$value.news_updateTime}}</li>
+                                <li> {{$value.add_time | dateFormat}}</li>
                             </ul>
                             <div class="news-content">
-                                <a href="news-details.html">
-                                    <h3>{{$value.news_title}}</h3>
+                                <a href="{{__HOST__}}/news-details/{{@$value._id}}">
+                                    <h3>{{$value.title}}</h3>
                                 </a>
-                                <p>
-                                    {{$value.news_desc}}
+                                <p class="news-item-content">
+                                    {{$value.description}}
                                 </p>
                                 <a href="{{__HOST__}}/news-details/{{@$value._id}}" class="news-icon">
                                     <i class="fas fa-arrow-circle-right"></i>
@@ -68,7 +68,7 @@
                     </div>
                     {{/each}}
 
-
+<!--
                     <div class="col-lg-12 col-md-12">
                         <div class="pagination-area">
                             <a href="#" class="prev page-numbers">
@@ -82,7 +82,12 @@
                             </a>
                         </div>
                     </div>
-
+-->
+                    <!--分页-->
+                    <div class="col-lg-12 col-md-12">
+                        <div id="page" class="pagination justify-content-center"></div>
+                    </div>
+                    <!--End 分页-->
                 </div>
             </div>
         </section>
@@ -96,4 +101,20 @@
         {{include 'default/public/footer-js.html'}}
         
     </body>
+
+
+    <script>
+        //分页
+        $('#page').jqPaginator({
+            totalPages: {{totalPage}},
+            visiblePages: {{pageSize}},
+            currentPage:{{page}},
+            onPageChange: function (num, type) {
+            //console.log(num, type);
+                if(type=='change'){
+                    location.href="{{__HOST__}}/news?page="+num;
+                }
+            }
+        });
+    </script>
 </html>
