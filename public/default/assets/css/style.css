@@ -1379,6 +1379,17 @@ Service Area
   margin: 0 auto;
 }
 
+.service-item-content,
+.news-item-content{
+  overflow:hidden;/*超出部分隐藏*/
+  text-overflow : ellipsis;/* 超出部分显示省略号 */
+  display: -webkit-box;/*将对象作为弹性伸缩盒子模型显示。*/
+  -webkit-line-clamp: 3; /*设置需要显示的行数*/
+  -webkit-box-orient: vertical;/*设置伸缩盒子的子元素排列方式(从上到下垂直排列)*/
+  text-align: left;
+  text-indent: 20px;
+}
+
 /*=================================
 Services Area End
 ====================================*/
@@ -1866,10 +1877,15 @@ News Area
   font-weight: 600;
   padding: 15px 20px 10px 20px;
   background-color: #fff;
+  width:30%;
+  text-align:center;
 }
 
 .news-card .news-img .sub-text a {
   color: #373e58;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
 .news-card ul {
@@ -1905,6 +1921,7 @@ News Area
 
 .news-card ul li a {
   color: #64acff;
+  text-transform:capitalize;
 }
 
 .news-card .news-content {
@@ -3053,6 +3070,40 @@ Pagination Area
 .pagination-area .page-numbers i {
   font-size: 15px;
 }
+
+
+.pagination{
+  margin:20px 0;
+  text-align: center;
+}
+.pagination > li{
+  margin: 0 3px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.pagination > li > a {
+  padding: 0 16px;
+  height: 40px;
+  text-align: center;
+  display: inline-block;
+  background-color: #fff;
+  line-height: 42px;
+  color: #64acff;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.pagination > .active > a{
+  z-index: 2;
+  color: #fff;
+  cursor: default;
+  background: #ff6464;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
 
 /*================================
 Pagination Area End
