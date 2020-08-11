@@ -161,25 +161,22 @@
             </li>
 
 
-            <li class="nav-item dropdown">
+            <li {{if G.url[1]=="slider"}} class="nav-item dropdown open" {{else}} class="nav-item dropdown" {{/if}}>
                 <a class="dropdown-toggle" href="#">
                     <span class="icon-holder">
                         <i class="lni-files"></i>
                     </span>
-                    <span class="title">Forms</span>
+                    <span class="title">轮播图管理</span>
                     <span class="arrow">
                         <i class="lni-chevron-right"></i>
                     </span>
                 </a>
                 <ul class="dropdown-menu sub-down">
-                    <li>
-                        <a href="form-elements.html">Form Elements</a>
+                    <li {{if G.url[1]=="slider"&&G.url[2]==""}} class="active" {{/if}}>
+                        <a href="{{__HOST__}}/admin/slider/">轮播图列表</a>
                     </li>
-                    <li>
-                        <a href="form-layouts.html">Form Layouts</a>
-                    </li>
-                    <li>
-                        <a href="form-validation.html">Form Validation</a>
+                    <li {{if G.url[2]=="sliderAdd"}} class="active" {{/if}}>
+                        <a href="{{__HOST__}}/admin/slider/sliderAdd">增加轮播图</a>
                     </li>
                 </ul>
             </li>
