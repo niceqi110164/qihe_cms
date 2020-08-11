@@ -8,7 +8,7 @@ const router = require('koa-router')(),
 router.get('/',async (ctx)=>{
     /** 获取轮播图内容信息*/
     let sliderResult= await DB.find('slider',{});
-    console.log(sliderResult);
+    //console.log(sliderResult);
     if(sliderResult.length>0){
         await ctx.render('admin/slider/sliderIndex',{
             list:sliderResult
