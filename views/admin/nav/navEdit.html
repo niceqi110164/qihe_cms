@@ -155,11 +155,11 @@
 
 <script>
     $('#btn-common').click(function () {
-           let nav_title = $("input[name=nav_title]").val();
-           let nav_url = $("input[name=nav_url]").val();
-           let sort = $("input[name=sort]").val();
-           let status = $("input[name=status]").val();
-           let id = $("input[name=id]").val();
+        let nav_title = $("input[name=nav_title]").val();
+        let nav_url = $("input[name=nav_url]").val();
+        let sort = $("input[name=sort]").val();
+        let status = $("input[name=status]:checked").val();
+        let id = $("input[name=id]").val();
         //Ajax请求 "/admin/changeManagerAdd"
         $.post("/admin/nav/doNavEdit",{
             nav_title:nav_title,
