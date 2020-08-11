@@ -106,17 +106,17 @@
     })
 
     // Popup Gallery 
-    $('.gallery-view').magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        tLoading: 'Loading image #%curr%...',
-        mainClass: 'mfp-img-mobile',
-        gallery: {
-            enabled: true,
-            navigateByImgClick: true,
-            preload: [0,1] 
-        }
-    });
+    // $('.gallery-view').magnificPopup({
+    //     delegate: 'a',
+    //     type: 'image',
+    //     tLoading: 'Loading image #%curr%...',
+    //     mainClass: 'mfp-img-mobile',
+    //     gallery: {
+    //         enabled: true,
+    //         navigateByImgClick: true,
+    //         preload: [0,1]
+    //     }
+    // });
 
     // Testimonial Slider
     $('.testimonial-slider').owlCarousel({
