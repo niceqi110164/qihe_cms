@@ -33,7 +33,7 @@
 
                                     <div class="slider-btn">
                                         <a href="#" class="default-btn1">Explore More</a>
-                                        <a href="contact.html" class="default-btn2 ml-20">Contact Us</a>
+                                        <a href="{{__HOST__}}/contact" class="default-btn2 ml-20">联系我们</a>
                                     </div>
                                 </div>
                             </div>
@@ -167,7 +167,7 @@
             <div class="container">
                 <div class="scetion-title text-center mb-50">
                     <span>Our Services</span>
-                    <h2>Dobby Provides Services</h2>
+                        <h2>Qihe Provides Services</h2>
                     <p>
                         The introduced now, the they expect, animals the desk, and catch temple. 
                         More seven my couldn't it the character using recommended.
@@ -175,20 +175,21 @@
                 </div>
 
                 <div class="service-item-area owl-carousel owl-theme">
+
+                    {{each servicesList.list}}
                     <div class="service-item">
-                        <a href="service-details.html" class="service-item-icon">
-                            <i class="flaticon-swimming"></i>
+                        <a href="{{__HOST__}}/service-details/{{@$value._id}}" class="service-item-icon">
+                            <i class="flaticon-{{$value.articleCate_keywords}}"></i>
                         </a>
-                        <a href="service-details.html" class="service-head">
-                            <h3>Swimming & Diving</h3>
+                        <a href="{{__HOST__}}/service-details/{{@$value._id}}" class="service-head">
+                            <h3>{{$value.articleCate_title}}</h3>
                         </a>
-                        <p>
-                            As sign what each derided to organizaasd tion. Remodelling 
-                            that, win word as have the proceeded lots subject
-                           
+                        <p class="service-item-content">
+                            {{$value.articleCate_description}}
                         </p>
                     </div>
-
+                    {{/each}}
+<!--
                     <div class="service-item">
                         <a href="service-details.html" class="service-item-icon">
                             <i class="flaticon-teacher"></i>
@@ -227,6 +228,7 @@
                             win word as have the proceeded lots subject
                         </p>
                     </div>
+                    -->
                 </div>
             </div>
         </section>
@@ -555,51 +557,54 @@
             <div class="container">
                 <div class="scetion-title text-center mb-50">
                     <span>Our News</span>
-                    <h2>Daily Updates of Our Dobby</h2>
+                    <h2>Daily Updates of Our Qihe</h2>
                     <p>
                         The introduced now, the they expect, animals the desk, and catch temple. 
                         More seven my couldn't it the character using recommended.
                     </p>
                 </div>
                 <div class="row">
+                    {{each newsList}}
                     <div class="col-lg-4 col-md-6">
                         <div class="news-card">
                             <div class="news-img">
-                                <a href="news-details.html">
-                                    <img src="{{__HOST__}}/default/assets/img/news/1.jpg" alt="News Images">
+                                <a href="{{__HOST__}}/news-details/{{@$value._id}}">
+                                    <img src="{{__HOST__}}/upload/{{$value.img_url}}" alt="News Images">
                                 </a>
                                 <div class="sub-text">
-                                    <a href="#">SCUBA DIVING</a> 
+                                    <a href="{{__HOST__}}/news-details/{{@$value._id}}">
+                                        {{$value.keywords}}
+                                    </a>
                                 </div>
                             </div>
                             <ul>
                                 <li>
-                                   <a href="">John Doe</a> 
+                                   <a href="">{{$value.author}}</a>
                                 </li>
-                                <li>26 APR 2019</li>
+                                <li> {{$value.add_time | dateFormat}}</li>
                             </ul>
                             <div class="news-content">
                                 <a href="news-details.html">
-                                    <h3>New Scuba Diving Course Sheet Will Update Soon</h3>
+                                    <h3>{{$value.title}}</h3>
                                 </a>
-                                <p>
-                                    Less entirely counter. Parent, curiously, must would frequency,
-                                    would very of wellfeigned legs, doctor back in the business.
+                                <p class="news-item-content">
+                                    {{$value.description}}
                                 </p>
-                                <a href="news-details.html" class="news-icon">
+                                <a href="{{__HOST__}}/news-details/{{@$value._id}}" class="news-icon">
                                     Read More 
                                 </a>
                             </div>
                         </div>
                     </div>
-
+                    {{/each}}
+<!--
                     <div class="col-lg-4 col-md-6">
                         <div class="news-card">
                             <div class="news-img">
                                 <a href="news-details.html">
                                     <img src="{{__HOST__}}/default/assets/img/news/2.jpg" alt="News Images">
                                 </a>
-                                <div class="sub-text"> 
+                                <div class="sub-text">
                                     <a href="#">
                                         SWIMMING EVENT
                                     </a>
@@ -607,7 +612,7 @@
                             </div>
                             <ul>
                                 <li>
-                                    <a href="#">John Doe</a> 
+                                    <a href="#">John Doe</a>
                                 </li>
                                 <li>27 APR 2019</li>
                             </ul>
@@ -620,7 +625,7 @@
                                     would very of wellfeigned legs, doctor back in the business.
                                 </p>
                                 <a href="news-details.html" class="news-icon">
-                                    Read More 
+                                    Read More
                                 </a>
                             </div>
                         </div>
@@ -638,7 +643,7 @@
                             </div>
                             <ul>
                                 <li>
-                                    <a href="#">John Doe</a> 
+                                    <a href="#">John Doe</a>
                                 </li>
                                 <li>28 APR 2019</li>
                             </ul>
@@ -651,12 +656,18 @@
                                     would very of wellfeigned legs, doctor back in the business.
                                 </p>
                                 <a href="news-details.html" class="news-icon">
-                                    Read More 
+                                    Read More
                                 </a>
                             </div>
                         </div>
                     </div>
+
+-->
+
+
                 </div>
+
+
             </div>
         </section>
         <!-- News Area End -->

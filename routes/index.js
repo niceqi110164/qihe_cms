@@ -8,7 +8,7 @@ const router = require('koa-router')(),
 
 /**========配置全路由中间件===========*/
 router.use(async (ctx,next)=>{
-    // Inner Banner Title
+    /** Inner Banner Title*/
     const innerBannerTitle = {
         "news":"News",
         "news-details":"News-Details",
@@ -54,47 +54,97 @@ router.use(async (ctx,next)=>{
 
     //处理路径配置到 Inner Banner
     // ctx.state.innerBanner = innerBannerTitle[innerBannerPath];
-    ctx.state.innerBanner = innerBannerTitle[splitUrl[0]];
+    ctx.state.innerBanner = innerBannerTitle[splitUrl[0]]
     await next();
 })
 
 /**========首页 index.html ===========*/
 router.get('/',async (ctx)=>{
-    await ctx.render("default/index");
+    /** 获取services模块*/
+    let servicesResult = await DB.find("articleCate",{});
+    /**处理数据*/
+    servicesResult = tools.articleCateList(servicesResult);
+    /** 获取我们想要的数据*/
+    servicesResult = tools.getArticleCate(servicesResult,"服务系列")
+
+    console.log(servicesResult);
+    /** 获取新闻模块*/
+    let page = ctx.query.page || 1,
+        pageSize = 6;
+    let newsResult = await DB.find('article',{"catename":"新闻咨询"},{},{
+        page,
+        pageSize,
+        sort:{"add_time":-1}
+    });
+
+    newsResult.length = 3;
+    /** 渲染页面*/
+    await ctx.render("default/index",{
+        newsList:newsResult,
+        servicesList:servicesResult
+    });
 });
 
 
 /**======== services.html =============*/
 router.get('/services',async (ctx)=>{
-    await ctx.render("default/services");
+    // 服务系列 _id : 5f20ecff2c196b16d001922c
+    /**获取 articleCate 中所有数据*/
+    let servicesResult = await DB.find("articleCate",{});
+    /**处理数据*/
+    servicesResult = tools.articleCateList(servicesResult);
+    /** 获取我们想要的数据*/
+    let result = tools.getArticleCate(servicesResult,"服务系列")
+    //console.log(result);
+    /**获取队员数据*/
+    let teamResult = await DB.find('teamList',{});
+
+    await ctx.render("default/services",{
+        list:result,
+        teamList:teamResult
+    });
 });
 
 /**======== service-details.html =============*/
-router.get('/service-details',async (ctx)=>{
-    await ctx.render("default/service-details");
-});
-
-/**======== 案例作品 case.html =============*/
-router.get('/case',async (ctx)=>{
-    await ctx.render("default/case");
-});
-
-
-/**======== 案例作品 case-details.html =============*/
-router.get('/case-details/:id',async (ctx)=>{
-    let id = ctx.params.id;
-    console.log(id);
-    await ctx.render("default/case-details");
+router.get('/service-details/:cid',async (ctx)=>{
+    //console.log(ctx.params); //_id :5f20ed6e2c196b16d001922d
+    let id = ctx.params.cid; //pid :5f20ecff2c196b16d001922c
+    /** 获取 article 表中 pid = id 的数据 */
+    let serviceDetailsResult = await DB.find('article',{"pid":id});
+    //console.log(serviceDetailsResult);
+    if(serviceDetailsResult.length>0){
+        await ctx.render("default/service-details",{
+            list:serviceDetailsResult[0]
+        });
+    }
 });
 
 
 /**========新闻咨询 news.html =============*/
 router.get('/news',async (ctx)=>{
-    let newsResult = await DB.find('news',{});
-    console.log(newsResult);
+
+    let page = ctx.query.page || 1,
+        pageSize = 6;
+
+    let newsResult = await DB.find('article',{"catename":"新闻咨询"},{},{
+        page,
+        pageSize,
+        sort:{"add_time":-1}
+    });
+    //console.log(newsResult);
+    /** 获取数据总数 */
+    let count = await DB.count('article',{"catename":"新闻咨询"});
+    /** 获取总页数 */
+    let totalPage = Math.ceil(count/pageSize);
+
+    //console.log(count);
+    /**渲染页面 */
     if(newsResult.length>0){
         await ctx.render("default/news",{
-            list:newsResult
+            list:newsResult,
+            totalPage:totalPage, /** 总页数 */
+            pageSize:pageSize,   /** 每页显示的数量 */
+            page:page            /** 当前第几页 */
         });
     }
 
@@ -102,11 +152,69 @@ router.get('/news',async (ctx)=>{
 
 /**========新闻详情页 news-details.html =============*/
 router.get("/news-details/:cid", async (ctx)=>{
-    //获取cid
+    /** 获取cid */
     let cid = ctx.params.cid;
-    //console.log(cid);
-    await ctx.render("default/news-details");
+    //console.log(cid); //5f2a5953d61c52375ce33247
+
+    /** 获取 article 表中 pid = id 的数据 */
+    let newsDetailsResult = await DB.find('article',{"_id":DB.getObjectID(cid)});
+
+    if(newsDetailsResult.length>0){
+        await ctx.render("default/news-details",{
+            list:newsDetailsResult[0]
+        });
+    }
 })
+
+/**======== 案例作品 case.html =============*/
+router.get('/case',async (ctx)=>{
+
+    let page = ctx.query.page || 1,
+        pageSize = 6;
+
+    let caseResult = await DB.find('article',{"catename":"案例作品"},{},{
+        page,
+        pageSize,
+        sort:{"add_time":-1}
+    });
+    //console.log(caseResult);
+
+    /** 获取数据总数 */
+    let count = await DB.count('article',{"catename":"案例作品"});
+    /** 获取总页数 */
+    let totalPage = Math.ceil(count/pageSize);
+
+    //console.log(count);
+    /**渲染页面 */
+    if(caseResult.length>0){
+        await ctx.render("default/case",{
+            list:caseResult,
+            totalPage:totalPage, /** 总页数 */
+            pageSize:pageSize,   /** 每页显示的数量 */
+            page:page            /** 当前第几页 */
+        });
+    }
+});
+
+/**======== 案例作品 case-details.html =============*/
+router.get('/case-details/:cid',async (ctx)=>{
+    /** 获取cid */
+    let cid = ctx.params.cid;
+    //console.log(cid); //5f2a5953d61c52375ce33247
+
+    /** 获取 article 表中 pid = id 的数据 */
+    let caseDetailsResult = await DB.find('article',{"_id":DB.getObjectID(cid)});
+    //console.log(caseDetailsResult);
+    if(caseDetailsResult.length>0){
+        await ctx.render("default/case-details",{
+            list:caseDetailsResult[0]
+        });
+    }
+
+    // let id = ctx.params.id;
+    // console.log(id);
+    // await ctx.render("default/case-details");
+});
 
 
 

@@ -12,64 +12,8 @@
         <!-- End Preloader -->
 
         <!-- Start Heder Area -->
-        <header class="header-area top-header">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-8">
-                        <div class="header-left">
-                            <ul>
-                                <li>
-                                    <i class="fas fa-clock"></i>
-                                    SAT - THU (10:00 AM - 6:00PM)
-                                </li>
-                                <li>
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    28/A Street, New York, USA
-                                </li>
-                                <li>
-                                    <a href="tel:+1123456789">
-                                        <i class="fas fa-phone-alt"></i>
-                                        +1 123 456 789
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="social-icon">
-                            <ul>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-youtube"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>  
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-google-plus-g"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <!----------引入公共的 header-top  ----------->
+        {{include "default/public/header-top.html"}}
         <!-- End Heder Area -->
 
         <!----------引入公共的头部导航 nav-top  ----------->
@@ -85,73 +29,84 @@
         <section class="shop-detls ptb-100">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-12">
-                        <div class="shop-detls-image">
-                            <img src="{{__HOST__}}/default/assets/img/product/shop-detl.jpg" alt="image">
+                    <div class="col-lg-5 offset-lg-1 col-md-12">
+                        <div class="shop-detls-image" style="display: flex;justify-content: center;align-items: center">
+                            <img src="{{__HOST__}}/upload/{{list.img_url}}" alt="image">
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-12">
                         <div class="shop-desc">
-                            <h3>Life Jacket</h3>
+                            <h3>{{list.title}}</h3>
                             <div class="price">
-                                <span class="new-price">$120.00</span>
-                                <span class="old-price">$210.00</span>
+                                <span class="new-price">{{list.add_time | dateFormat}}</span>
+<!--                                <span class="old-price">$210.00</span>-->
                             </div>
 
                             <div class="shop-review">
                                 <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
+<!--                                    <i class="fas fa-star"></i>-->
+<!--                                    <i class="fas fa-star"></i>-->
+<!--                                    <i class="fas fa-star"></i>-->
+<!--                                    <i class="fas fa-star"></i>-->
+<!--                                    <i class="fas fa-star-half-alt"></i>-->
+                                  <span style="color:#ff6464;font-size:18px;font-weight: bold;">{{list.keywords}}的剧情简介</span>
                                 </div>
-                                <a href="#" class="rating-count">3 reviews</a>
+<!--                                <a href="#" class="rating-count">3 reviews</a>-->
                             </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                                tempor incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur 
-                                adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
+                            <p style="text-indent: 20px">
+                                {{list.description}}
                             </p>
 
-                            <div class="shop-add">
-                                <div class="input-counter">
-                                    <span class="minus-btn"><i class="fas fa-minus"></i></span>
-                                    <input type="text" min="1" value="1">
-                                    <span class="plus-btn"><i class="fas fa-plus"></i></span>
-                                </div>
-                                <button type="submit" class="shop-btn">
-                                    <i class="fas fa-cart-plus"></i> Add To Cart
-                                </button>
-                            </div>
-
                             <div class="buy-checkbox-btn">
-                                <div class="item">
-                                    <input class="inp-cbx" id="cbx" type="checkbox">
-                                    <label class="cbx" for="cbx">
-                                        <span>I agree with the terms and conditions</span>
-                                    </label>
+<!--                                <div class="item">-->
+<!--                                    <input class="inp-cbx" id="cbx" type="checkbox">-->
+<!--                                    <label class="cbx" for="cbx">-->
+<!--                                        <span>I agree with the terms and conditions</span>-->
+<!--                                    </label>-->
+<!--                                </div>-->
+
+                                <div class="instructor-content">
+<!--                                    <h3>David Henry</h3>-->
+<!--                                    <span>Chief Instructor</span>-->
+                                    <ul class="instructor-social">
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fab fa-youtube"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fab fa-google-plus-g"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <a href="appointments.html" class="default-btn1" >Book Appointment</a>
                                 </div>
 
-                                <div class="item">
-                                    <a href="#" class="btn btn-buy">Buy Now!</a>
-                                </div>
+<!--                                <div class="item">-->
+<!--                                    <a href="#" class="btn btn-buy">Buy Now!</a>-->
+<!--                                </div>-->
                             </div>
 
-                            <div class="custom-payment">
-                                <span>Guaranteed safe checkout:</span>
-
-                                <div class="payment-methods">
-                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add1.svg" alt="image"></a>
-                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add2.svg" alt="image"></a>
-                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add3.svg" alt="image"></a>
-                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add4.svg" alt="image"></a>
-                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add5.svg" alt="image"></a>
-                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add6.svg" alt="image"></a>
-                                    <a href="#"><img src="{{__HOST__}}/default/assets/img/product/add7.svg" alt="image"></a>
-                                </div>
-                            </div>
+<!--                            <div class="custom-payment">-->
+<!--                                <span>Guaranteed safe checkout:</span>-->
+<!--                            </div>-->
                         </div>
                     </div>
 

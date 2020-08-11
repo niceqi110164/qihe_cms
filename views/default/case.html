@@ -12,64 +12,8 @@
         <!-- End Preloader -->
 
         <!-- Start Heder Area -->
-        <header class="header-area top-header">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-8">
-                        <div class="header-left">
-                            <ul>
-                                <li>
-                                    <i class="fas fa-clock"></i>
-                                    SAT - THU (10:00 AM - 6:00PM)
-                                </li>
-                                <li>
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    28/A Street, New York, USA
-                                </li>
-                                <li>
-                                    <a href="tel:+1123456789">
-                                        <i class="fas fa-phone-alt"></i>
-                                        +1 123 456 789
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="social-icon">
-                            <ul>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-youtube"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>  
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-google-plus-g"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <!----------引入公共的 header-top  ----------->
+        {{include "default/public/header-top.html"}}
         <!-- End Heder Area -->
 
         <!----------引入公共的头部导航 nav-top  ----------->
@@ -81,7 +25,7 @@
         </div>
         <!-- Inner Banner End -->
 
-        <!-- Product Area -->
+        <!-- Product Area
          <section class="product-area pt-94 pb-70">
             <div class="container">
                 <div class="scetion-title text-center mb-50">
@@ -331,8 +275,108 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
         <!-- Product Area End -->
+
+
+        <!-- Gallery Inner -->
+        <div class="gallery-inner pt-100 pb-70">
+            <div class="container">
+                <div class="scetion-title text-center mb-50">
+                    <span>案例作品</span>
+                    <h2>Amazing Photos at Our Gallery</h2>
+                </div>
+                <div class="gallery-view">
+                    <div class="row">
+<!--
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single-gallery">
+                                <img src="{{__HOST__}}/default/assets/img/gallery/1.jpg" alt="Gallery Images">
+                                <a href="{{__HOST__}}/default/assets/img/gallery/1.jpg" class="single-icon">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                                <div class="gallery-content">
+                                    <h3>Baby Girl Learn Swimming</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single-gallery">
+                                <img src="{{__HOST__}}/default/assets/img/gallery/2.jpg" alt="Gallery Images">
+                                <a href="{{__HOST__}}/default/assets/img/gallery/2.jpg" class="single-icon">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                                <div class="gallery-content">
+                                    <h3>John at His Swim Event</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single-gallery">
+                                <img src="{{__HOST__}}/default/assets/img/gallery/3.jpg" alt="Gallery Images">
+                                <a href="{{__HOST__}}/default/assets/img/gallery/3.jpg" class="single-icon">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                                <div class="gallery-content">
+                                    <h3>Scuba Diving Instruction</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single-gallery">
+                                <img src="{{__HOST__}}/default/assets/img/gallery/4.jpg" alt="Gallery Images">
+                                <a href="{{__HOST__}}/default/assets/img/gallery/4.jpg" class="single-icon">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                                <div class="gallery-content">
+                                    <h3>Under Water Scuba Diving</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single-gallery">
+                                <img src="{{__HOST__}}/default/assets/img/gallery/7.jpg" alt="Gallery Images">
+                                <a href="{{__HOST__}}/default/assets/img/gallery/7.jpg" class="single-icon">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                                <div class="gallery-content">
+                                    <h3>Mike’s Frist Dive for Dobby</h3>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                        {{each list}}
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single-gallery">
+
+                                <img src="{{__HOST__}}/upload/{{$value.img_url}}" alt="Gallery Images">
+
+                                <a href="{{__HOST__}}/case-details/{{@$value._id}}" class="single-icon">
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                    Read More
+                                </a>
+
+                                <div class="gallery-content">
+                                    <h3>{{$value.title}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                        <!--分页-->
+                        <div class="col-lg-12 col-md-12">
+                            <div id="page" class="pagination justify-content-center"></div>
+                        </div>
+                        <!--End 分页-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Gallery Inner End -->
 
         <!----------引入公共的 footer  ----------->
         {{include "default/public/footer.html"}}
@@ -342,4 +386,20 @@
         {{include 'default/public/footer-js.html'}}
         
     </body>
+
+
+    <script>
+        //分页
+        $('#page').jqPaginator({
+            totalPages: {{totalPage}},
+            visiblePages: {{pageSize}},
+            currentPage:{{page}},
+            onPageChange: function (num, type) {
+                //console.log(num, type);
+                if(type=='change'){
+                    location.href="{{__HOST__}}/case?page="+num;
+                }
+            }
+        });
+    </script>
 </html>
