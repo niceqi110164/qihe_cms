@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 06/05/2020 15:26
+  	Creation date: 06/08/2020 07:20
   	*/
 
 @font-face {
@@ -28,21 +28,26 @@
 font-style: normal;
 }
 
-.flaticon-waves:before { content: "\f100"; }
-.flaticon-play-button:before { content: "\f101"; }
-.flaticon-swimming:before { content: "\f102"; }
-.flaticon-teacher:before { content: "\f103"; }
-.flaticon-flipper:before { content: "\f104"; }
-.flaticon-left-arrow:before { content: "\f105"; }
-.flaticon-next:before { content: "\f106"; }
+.flaticon-water-waves:before { content: "\f100"; }
+.flaticon-wave:before { content: "\f101"; }
+.flaticon-play-button:before { content: "\f102"; }
+.flaticon-swimming:before { content: "\f103"; }
+.flaticon-teacher:before { content: "\f104"; }
+.flaticon-fins:before { content: "\f105"; }
+.flaticon-plus:before { content: "\f106"; }
 .flaticon-diver:before { content: "\f107"; }
-.flaticon-plus:before { content: "\f108"; }
-.flaticon-left-arrow-1:before { content: "\f109"; }
-.flaticon-magnifying-glass:before { content: "\f10a"; }
-.flaticon-right-arrow:before { content: "\f10b"; }
-.flaticon-shopping-cart:before { content: "\f10c"; }
-.flaticon-menu:before { content: "\f10d"; }
-.flaticon-telephone:before { content: "\f10e"; }
-.flaticon-oxigen:before { content: "\f10f"; }
-.flaticon-swimmer:before { content: "\f110"; }
-.flaticon-dive:before { content: "\f111"; }
+.flaticon-swim:before { content: "\f108"; }
+.flaticon-oxigen:before { content: "\f109"; }
+.flaticon-flipper:before { content: "\f10a"; }
+.flaticon-dive:before { content: "\f10b"; }
+.flaticon-right-arrow:before { content: "\f10c"; }
+.flaticon-left-arrow:before { content: "\f10d"; }
+.flaticon-shopping-cart:before { content: "\f10e"; }
+.flaticon-menu:before { content: "\f10f"; }
+.flaticon-magnifying-glass:before { content: "\f110"; }
+.flaticon-next-button:before { content: "\f111"; }
+.flaticon-mocha:before { content: "\f112"; }
+.flaticon-adobe:before { content: "\f113"; }
+.flaticon-3d:before { content: "\f114"; }
+.flaticon-dolly:before { content: "\f115"; }
+.flaticon-chichen-itza-pyramid:before { content: "\f116"; }
