@@ -67,7 +67,10 @@ router.get('/',async (ctx)=>{
     /** 获取我们想要的数据*/
     servicesResult = tools.getArticleCate(servicesResult,"服务系列")
 
-    console.log(servicesResult);
+    /** 获取轮播内容*/
+    let sliderResult = await DB.find("slider",{});
+
+    //console.log(sliderResult);
     /** 获取新闻模块*/
     let page = ctx.query.page || 1,
         pageSize = 6;
@@ -76,12 +79,21 @@ router.get('/',async (ctx)=>{
         pageSize,
         sort:{"add_time":-1}
     });
+    let courseNewsResult = newsResult.slice(3,4);
+    //console.log(courseNewsResult);
 
+    /**获取作品案例*/
+    let caseResult = await DB.find('article',{"catename":"案例作品"});
+    //console.log(caseResult);
     newsResult.length = 3;
+
     /** 渲染页面*/
     await ctx.render("default/index",{
-        newsList:newsResult,
-        servicesList:servicesResult
+        newsList:newsResult,  /** 新闻模块*/
+        courseNewsResult:courseNewsResult[0],  /** 另一处新闻模块*/
+        courseCaseResult:caseResult[0],  /** 另一处新闻模块*/
+        servicesList:servicesResult, /** services模块*/
+        sliderList:sliderResult  /** slider模块*/
     });
 });
 
