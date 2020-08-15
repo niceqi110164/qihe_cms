@@ -29,11 +29,10 @@
         <div class="contact-area pt-100 pb-70">
             <div class="container">
                 <div class="contact-title text-center mb-50">
-                    <h2>
-                        我们的时间Our Institute is Available From 9:00 AM to 10:00 PM (Sunday - Thursday)
-                        and Contact is Available 24/7
-                    </h2>
+                    <h2>我们的工作时间 9:00 AM to 10:00 PM</h2>
+                    <h2>(Sunday - Thursday)</h2>
                 </div>
+<!--
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="contact-item">
@@ -58,75 +57,116 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Contact Area End -->
-        
-        <!-- Contact Form -->
-        <div class="contact-form pb-70">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 p-0">
-                        <div class="contact-img">
-                            <img src="{{__HOST__}}/default/assets/img/contact.png" alt="Contact Images">
+                -->
+                <div class="row" style="background: transparent;overflow: hidden;border-radius: 10px;">
+                    <div class="col-lg-4 col-md-4 contact-col-lg-4-item">
+                        <div class="contact-p1-cont2">
+                            <div class="address-details-f contact-add">
+                                <span class="add-style" style="transform: skew(-24deg);"></span>
+                                <div class="contact-p1-header">
+                                    <div class="our-phones big-title">我们的电话</div>
+                                    <div class="eng-title">Our phones</div>
+                                </div>
+                                <div class="contact-p1-content">
+                                    Tel :{{list.site_tel1}}
+                                </div>
+                                <div class="contact-p1-content">
+                                    Tel :{{list.site_tel2}}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="form-area">
-                            <div class="form-section">
-                                <h2>What Do You Want to Know?</h2>
-                                <form id="contactForm">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" name="name" id="name" class="form-control" required data-error="Please enter your name" placeholder="Your Name">
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-            
-                                        <div class="col-lg-6 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="email" name="email" id="email" class="form-control " required data-error="Please enter your email" placeholder="Your Email">
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" name="phone_number" id="phone_number" required data-error="Please enter your number" class="form-control" placeholder="Your Phone">
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" name="msg_subject" id="msg_subject" class="form-control" required data-error="Please enter your subject" placeholder="Subject">
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-            
-                                        <div class="col-lg-12 col-md-12">
-                                            <div class="form-group">
-                                                <textarea name="message" class="form-message textarea-hight" id="message" cols="30" rows="5" required data-error="Write your message" placeholder="Your Message"></textarea>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                        </div>
-            
-                                        <div class="col-lg-12 col-md-12">
-                                            <button type="submit" class="default-btn1 btn-two">
-                                                Submit
-                                            </button>
-                                            <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </form>
+                    <div class="col-lg-4 col-md-4 contact-col-lg-4-item">
+                        <div class="contact-p1-cont2">
+                            <div class="address-details-f contact-add">
+                                <span class="add-style" style="transform: skew(-24deg);"></span>
+                                <div class="contact-p1-header">
+                                    <div class="our-address big-title">我们的地址</div>
+                                    <div class="eng-title">Our address</div>
+                                </div>
+                                <div class="contact-p1-content">
+                                    {{list.site_address}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 contact-col-lg-4-item">
+                        <div class="contact-p1-cont2">
+                            <div class="address-details-f contact-add">
+                                <span class="add-style" style="transform: skew(-24deg);"></span>
+                                <div class="contact-p1-header email-title">
+                                    <div class="our-email big-title ">我们的邮箱</div>
+                                    <div class="eng-title">Our E-mail</div>
+                                </div>
+                                <div class="contact-p1-content">
+                                    E-mail :{{list.site_email1}}
+                                </div>
+                                <div class="contact-p1-content">
+                                    E-mail :{{list.site_email2}}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Contact Form End -->
+        <!-- Contact Area End -->
+
+        <!-- Start Map -->
+        <section>
+            <div id="container" tabindex="0"></div>
+        </section>
+        <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+        <script type="text/javascript"
+                src="https://webapi.amap.com/maps?v=1.4.12&key=bb9c6cdaa305665da3d902d860348ed7"></script>
+        <script src="https://webapi.amap.com/ui/1.0/main.js"></script>
+        <script>
+
+            var map = new AMap.Map('container', {
+                resizeEnable: true,
+                center: [116.581184,39.913513],
+                zoom: 13
+            });
+
+            AMap.plugin(['AMap.ToolBar', 'AMap.Scale'], function () {//异步同时加载多个插件
+                var toolbar = new AMap.ToolBar();
+                var driving = new AMap.Scale();//比例尺
+                map.addControl(toolbar);
+                map.addControl(driving);
+            });
+
+            AMapUI.loadUI(['overlay/SimpleInfoWindow'], function (SimpleInfoWindow) {
+                var marker = new AMap.Marker({
+                    map: map,
+                    zIndex: 9999999,
+                    // position: [122.133695, 41.654743]
+                    position: [116.581184,39.913513] //坐标点局中显示
+                });
+
+                var infoWindow = new SimpleInfoWindow({
+                    infoTitle: '<strong>北京柒禾创客视觉技术有限公司</strong>',
+                    infoBody: `<p class="my-desc">地址:北京市朝阳区建国路15号院甲1号北岸1292 <span style="font-weight: 500;">华文国际C座4层21</span></p><p class="my-desc">E-mail :qihe@163.com</p><p class="my-desc">Tel :13866888866</p>`,
+
+                    //基点指向marker的头部位置
+                    offset: new AMap.Pixel(0, -31)
+                });
+
+                function openInfoWin() {
+                    infoWindow.open(map, marker.getPosition());
+                }
+
+                //marker 点击时打开
+                AMap.event.addListener(marker, 'click', function () {
+                    openInfoWin();
+                });
+                openInfoWin();
+            })
+
+        </script>
+        <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+
+        <!--  End Map       -->
+
 
         <!----------引入公共的 footer  ----------->
         {{include "default/public/footer.html"}}
