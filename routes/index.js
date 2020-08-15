@@ -249,7 +249,14 @@ router.get('/about',async (ctx)=>{
 
 /**========联系我们 contact.html ===========*/
 router.get('/contact',async (ctx)=>{
-    await ctx.render("default/contact");
+    let contactUsResult = await DB.find('siteContact',{});
+    //console.log(contactUsResult);
+    if(contactUsResult.length>0){
+        await ctx.render("default/contact",{
+            list:contactUsResult[0]
+        });
+    }
+
 });
 
 
