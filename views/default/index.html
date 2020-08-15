@@ -20,27 +20,31 @@
         <!-- Home Slider -->
         <div class="home-slider">
             <div class="slider-area owl-carousel owl-theme">
-                <div class="slider-item slider-bg1">
+                {{each sliderList}}
+                {{if $value.status!="0"}}
+                <div class="slider-item slider-bg{{$value.sort}}">
                     <div class="d-table">
                         <div class="d-table-cell">
                             <div class="container">
                                 <div class="slider-text">
-                                    <h1>PREVALENT SWIMMING & DIVING CENTER</h1>
+                                    <h1>{{$value.slider_title}}</h1>
                                     <p>
-                                        Here is actually no correlation between swimming and scuba diving. Swimming is the act of keeping ourselves
-                                        above the water. As scuba diving is done under the water than technically we don't need to know how to swim.
+                                        {{$value.slider_content}}
                                     </p>
-
+<!--
                                     <div class="slider-btn">
                                         <a href="#" class="default-btn1">Explore More</a>
                                         <a href="{{__HOST__}}/contact" class="default-btn2 ml-20">联系我们</a>
                                     </div>
+-->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                {{/if}}
+                {{/each}}
+<!--
                 <div class="slider-item slider-bg2">
                     <div class="d-table">
                         <div class="d-table-cell">
@@ -82,6 +86,7 @@
                         </div>
                     </div>
                 </div>
+ -->
             </div>
         </div>
         <!-- Home Slider End -->
@@ -144,17 +149,22 @@
                     <div class="col-lg-6">
                         <div class="about-right">
                             <div class="play-area">
-                                <a href="https://www.youtube.com/watch?v=duSPHGiPhwk" class="play-btn">
-                                    <i class="flaticon-play-button"></i>
-                                    Play a Video
-                                </a>
+                                <video id="video1" width="100%" autoplay="autoplay" controls="controls" loop="-1">
+                                    <source src="https://www.runoob.com/try/demo_source/mov_bbb.mp4" type="video/mp4">
+                                    <source src="https://www.runoob.com/try/demo_source/mov_bbb.ogg" type="video/ogg">
+                                    您的浏览器不支持 HTML5 video 标签。
+                                </video>
+<!--                                <a href="https://www.youtube.com/watch?v=duSPHGiPhwk" class="play-btn">-->
+<!--                                    <i class="flaticon-play-button"></i>-->
+<!--                                    Play a Video-->
+<!--                                </a>-->
                             </div>
                         </div>
                         <div class="icon-shape-1">
-                            <i class="flaticon-waves"></i>
+                            <i class="flaticon-wave"></i>
                         </div>
                         <div class="icon-shape-2">
-                            <i class="flaticon-waves"></i>
+                            <i class="flaticon-wave"></i>
                         </div>
                     </div>
                 </div>
@@ -257,24 +267,23 @@
 
         <!-- Course=>课程 Area=>地区;区域;范围 -->
         <div class="course-area pt-100 pb-70">
+
             <div class="container-fluid">
+
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="course-item">
                             <div class="course-text">
-                                <span>Swimming Course</span>
-                                <h2>Swimming Course Taken by Our Most Experienced Trainer</h2>
+                                <span>{{courseNewsResult.catename}}</span>
+                                <h2>{{courseNewsResult.title}}</h2>
                                 <p>
-                                    Attempt. Origin it the get and the been came into the fitted would another behind think insur is ance sister hell
-                                    mild, back least on war, can of, remote become into and and that the that as a  me skyline was first him many instruments,
-                                    nearby a to he purpose series helplessly didn't has a long question tricoloured half here, the links needed in considerable.
+                                    {{courseNewsResult.keywords}}
                                 </p>
                                 <p>
-                                    Months known was first own, them. Travelling of by velocity agreed  by clock of this
-                                    to dedicat ed with days, and on viewings the brought we her with been decision-making.
+                                    {{courseNewsResult.description}}
                                 </p>
                                 <div class="course-btn">
-                                    <a href="courses.html" class="default-btn2">Take Course</a>
+                                    <a href="{{__HOST__}}/news" class="default-btn2">更多新闻</a>
                                 </div>
                             </div>
                         </div>
@@ -282,7 +291,7 @@
 
                     <div class="col-lg-5">
                         <div class="course-img">
-                            <img src="{{__HOST__}}/default/assets/img/course/1.jpg" alt="Course Images">
+                            <img src="{{__HOST__}}/upload/{{courseNewsResult.img_url}}" alt="Course Images">
                         </div>
                         <div class="course-dots">
                             <img src="{{__HOST__}}/default/assets/img/shape/dots-blue.png" alt="Dots Images">
@@ -290,11 +299,12 @@
                     </div>
                 </div>
 
+
                 <div class="course-another pt-70">
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="course-img-2">
-                                <img src="{{__HOST__}}/default/assets/img/course/2.jpg" alt="Course Images">
+                                <img src="{{__HOST__}}/upload/{{courseCaseResult.img_url}}" alt="Course Images">
                             </div>
                             <div class="course-dots-2">
                                 <img src="{{__HOST__}}/default/assets/img/shape/dots-pink.png" alt="Dots Images">
@@ -304,26 +314,25 @@
                         <div class="col-lg-7">
                             <div class="course-item-2">
                                 <div class="course-text">
-                                    <span>Diving Course</span>
-                                    <h2>Diving Course Taken by Our Most  Experienced Trainer</h2>
+                                    <span>{{courseCaseResult.catename}}</span>
+                                    <h2>{{courseCaseResult.title}}</h2>
                                     <p>
-                                        Attempt. Origin it the get and the been came into the fitted would another behind think insur is ance sister hell
-                                        mild, back least on war, can of, remote become into and and that the that as a  me skyline was first him many instruments,
-                                        nearby a to he purpose series helplessly didn't has a long question tricoloured half here, the links needed in considerable.
+                                       {{courseCaseResult.keywords}}
                                     </p>
                                     <p>
-                                        Months known was first own, them. Travelling of by velocity agreed  by clock of this
-                                        to dedicat ed with days, and on viewings the brought we her with been decision-making.
+                                        {{courseCaseResult.description}}
                                     </p>
                                     <div class="course-btn">
-                                        <a href="courses.html" class="default-btn2">Take Course</a>
+                                        <a href="{{__HOST__}}/case" class="default-btn2">更多作品</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
+
             <div class="icon-shape-3">
                 <i class="flaticon-swimming"></i>
             </div>
@@ -425,7 +434,7 @@
         </section>  -->
         <!-- Product Area End -->
 
-        <!-- Gallery Area -->
+        <!-- Gallery Area
         <section class="gallery-area pt-100 pb-70">
             <div class="container">
                 <div class="scetion-title text-center mb-50">
@@ -506,11 +515,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
         <!-- Gallery Area End -->
 
         <!-- Trainers Area -->
-        <section class="trainers-area pb-70" style="background: #fffafa">
+        <section class="trainers-area  pt-70 pb-70 product-area">
             <div class="container">
                 <div class="scetion-title text-center mb-50">
                     <span>Our Team</span>
@@ -553,7 +562,7 @@
         <!-- Trainers Area End -->
 
         <!-- News Area -->
-        <section class="news-area pb-70">
+        <section class="news-area pt-70 pb-70">
             <div class="container">
                 <div class="scetion-title text-center mb-50">
                     <span>Our News</span>
